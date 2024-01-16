@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <h1>Basics</h1>
+
+        <!-- Programmation événementielle-->
+        <button onclick="reactToClick()">Clique sur moi</button>
+
+
+        <script>
+            //Tout ceci est du code Javascript
+            //Ceci est un commentaire
+            /**
+             * Ceci est un commentaire
+             * sur plusieurs lignes
+             */
+
+            //Déclarer des variables
+            //Première façon de déclarer une variable avec let
+            let myVariable = "Ceci est une chaîne de caractères";
+            let anotherVariable = 100;
+            //Inspecter le contenu d'une variable
+            console.log(myVariable);
+            myVariable = "La variable a changé";
+            //Inspecter le type de myVariable (type de la valeur contenue dedans)
+            console.log(typeof myVariable);
+            console.log(typeof anotherVariable);
+            //Est ce possible ? Oui, Javascript concatène les deux variables pour produire une chaine de caractères
+            console.log(myVariable + anotherVariable);
+            console.log(typeof anotherVariable)
+
+            //Javascript est un langage typé dynamiquement
+            //Le type est déterminé à partir de la valeur (a droite).
+            let a = 2;
+            let b = 3;
+            //c sera de type 'number' comma a et b
+            let c = a + b;
+            //Imprimer plusieurs valeurs sur la console
+            console.log(c, typeof c);
+
+            //Deuxième façon de déclarer une variable : var (historiquement c'était la seule façon de déclarer une variable). On verra la différence avec let plus tard...
+            // Déclaration d'une variable et affectation d'une valeur
+            var justAnotherVariable = 'foo bar';
+            //Une variable déclarée sans affectation a pour valeur 'undefined'
+            let variableSansValeurAffectee;
+            //Elle est aussi de type 'undefined'
+            console.log(variableSansValeurAffectee, typeof variableSansValeurAffectee);
+
+            //Troisième façon : avec const, déclarer une valeur constante. Variable immutable. 
+            const aConstVariable = 'ceci est une constante, elle ne peut plus être modifiée';
+
+            //Je ne peux pas modifier une constante => lève une erreur !
+            // aConstVariable = "j'essaye de changer la valeur";
+
+            //Ex: le pourcentage de la TVA est une valeur métier constante
+            const tvaPercent = 0.2;
+
+            //Tableau (collection d'éléments)
+            let ceciEstUnTableau = [1, 2, 3, "une chaine de caractères", [1, 2, 3], 3.1456];
+            console.log(typeof ceciEstUnTableau);
+            //J'accède au premier élément de mon tableau (position ou index 0)
+            console.log(ceciEstUnTableau[0]);
+            //Accéder au dernier élément
+            console.log(ceciEstUnTableau[5]);
+            //Afficher la taille du tableau (nombre d'éléments)
+            console.log(ceciEstUnTableau.length);
+            console.log(ceciEstUnTableau);
+
+
+            //Déclarer une fonction
+            function reactToClick(){
+                //Le corps (body) de la fonction
+                //Là où on va placer toutes les instructions
+                console.log('La fonction a été appelé');
+            }
+
+            //Appel de la fonction (executer l'ensemble des instructions contenus dans son "corps")
+            let result = reactToClick();
+            console.log(result)
+
+        </script>
+
+    </body>
+
+</html>
