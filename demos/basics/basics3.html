@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Basics - 2</title>
+    </head>
+
+    <body>
+
+        <h1>Module 2 - Les bases de Javascript (suite)</h1>
+
+        <h2>Notions abordées</h2>
+
+        <p style="color: green">Portée des variables, valeurs par défaut des arguments d'une fonction, nombre indéterminé d'arguments avec
+            l'opérateur de décomposition, parcours d'un tableau avec une boucle for</p>
+
+        <p style="color:red"> Penser à afficher la console dans votre navigateur, commenter/décommenter le code dans la
+            balise script pour tester votre compréhension</p>
+
+        <script>
+            //Tout ceci est du javascript
+            //On place la balise script à la fin du body pour que le JS
+            //se charge en dernier (après le contenu de la page), pour le comfort
+            //du client.
+
+            //Utilisé pour écrire dans la console du navigateur (Inspecter la page, onglet Console)
+            console.log('Le script est exécuté !')
+
+            //variables, types, fonctions
+
+
+            //Portée des variables
+            var a = "le contenu de a";
+            let b = "le contenu de b";
+
+            //Test avec if
+            //Ouverture d'un bloc avec les accolades
+            {
+
+                if (true) {
+                    const d = 'le contenu de d';
+                    //ici je peux utiliser d
+                    // console.log(1, d)
+                    var c = 'une variable globale';
+                }
+
+                let d = 'une autre valeur';
+
+                //Pourquoi ca marche ?
+                // console.log(2, d)
+            }
+
+
+            //Je peux accéder à c car elle est déclarée avec var (variable globale, accessible partout, même dans les blocs de niveau supérieur)
+            console.log(3, c);
+
+            //b est le nom donné à l'argument de la fonction afficher
+            function afficher(b){
+                console.log(b);
+            }
+
+            function uneAutreFonction(){
+                console.log(a);
+                console.log(b);
+            }
+
+            // uneAutreFonction();
+
+            // var c = 'variable globale';
+            // let c = 'variable locale';
+
+            //Le nom de l'argument fait toujours référence à la valeur passée, pas à une variable globale définie dans le programme.
+            function uneFonction(c) {
+                console.log(c);
+            }
+            // uneFonction();
+
+            //Déclarer une chaîne de caractères avec les guillemets simples ou doubles
+            afficher(["Un message qui va s'afficher sur la console."]);
+            //Les guillemets doubles permettent d'échapper les caractères spéciaux
+            //Avec les guillemets simples il faut échapper les caractères spéciaux nous-même, avec un antislash \' par exemple.
+            afficher('Un message qui va s\'afficher sur la console.');
+
+            //Arguments de fonctions
+            function add(a, b) {
+                console.log(a, b);
+                //Return indique que la fonction retourne une valeur
+                return a + b;
+            }
+
+
+            //Fonction avec argument par défaut
+
+
+            //Argument b a une valeur par défaut égale à 2
+            function multiply(a, b = 2) {
+                return a * b;
+            }
+
+            //Très pratique pour des valeurs optionnelles
+            console.log(multiply(1, 5), multiply(5));
+
+
+            //Un nombre indéterminé d'arguments ? Je ne connais pas a l'avance le nombre d'arguments. Par exemple, add(1,2,3) ou add(1,2,3,4,5,6,1000)
+
+            //Une fonction qui prend un nombre indéterminé d'arguments. L'opérateur ... (spread operator)
+            function add(...args) {
+                //On récupère un tableau avec toutes les valeurs passées en argument
+                console.log(args)
+
+                //Boucle sur les éléments avec for
+
+                //for(debut, fin, increment)
+                //args.length = taille du tableau
+                let sum = 0;
+                for (let i = 0; i < args.length; i = i + 1) {
+                    console.log(i, args[i]);
+                    sum = sum + args[i];
+                }
+                return sum;
+            }
+
+            //Je peux utiliser add avec un nombre indeterminé d'arguments
+            // console.log(add(1, 2, 3, 4, 5, 6));
+            // add(1);
+            // add(1, 5, 43);
+
+
+            // 1. Ecrire une fonction qui fait la somme des nombres au carré. Cette fonction doit prendre un nombre indéterminé d'arguments.
+
+            function sumSquare(...numbers) {
+
+                let sum = 0;
+
+                for (let i = 0; i < numbers.length; i++) {
+
+                    let square = numbers[i] * numbers[i];
+
+                    sum = sum + square;
+                }
+
+                return sum;
+
+            }
+
+            //Structures de controle :
+
+            // For
+
+
+            let numbers = [1, 2, 3, 5, 6];
+
+            //1ere syntaxe avec index explicite
+            for (let i = 0; i < numbers.length; i++) {
+                //Afficher la valeur à la position i
+                console.log(numbers[i]);
+            }
+
+            //2eme syntaxe avec alias
+            console.log('avec la syntaxe of')
+            for (let number of numbers) {
+                //number est une variable locale qui prend tour à tour chaque valeur du tableau
+                console.log(number)
+            }
+
+
+            console.log(sumSquare(1, 2, 3));
+
+        </script>
+    </body>
+
+</html>

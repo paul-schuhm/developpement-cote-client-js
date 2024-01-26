@@ -1,8 +1,47 @@
 # Développement côté client avec Javascript
 
-## Module 02 - Premiers pas en JS
+Ce dépôt contient tout le code source Javascript (et HTML) du module *Développement Front-End* (côté client). Vous y retrouverez les démos réalisées en cours, les exercices et leurs corrections.
+
+## Utiliser le dépôt
+
+Vous pouvez consulter le contenu du dépôt directement sur le web, comme n'importe quel site web. Vous pouvez également télécharger le contenu sous forme d'archive en cliquant sur `Code` (bouton vert) puis `Download ZIP`.
+
+Comme le contenu du dépôt va évoluer au cours du temps, le mieux est d'utiliser le programme [git](https://git-scm.com/). Avec git, vous allez pouvoir **récupérer tout le contenu *à jour* du dépôt en une seule commande**.
+
+### Prérequis
+
+Télécharger et installer [git](https://git-scm.com/downloads) pour votre système d'exploitation.
+
+> Sur macOs et GNU/Linux, vérifier que le programme `git` est sur le `PATH`.
+
+## Récupérer le contenu du dépôt 
+
+Ouvrir un terminal. 
+
+> Sur Windows, vous pouvez utiliser l'application Git Bash (installée avec git), qui est un terminal dédié à git.
+
+Vérifiez l'installation de Git en tapant simplement `git` dans votre terminal. Si `git` est correctement installé, vous devriez voir une liste de commandes. Sinon, assurez-vous que `git` est inclus dans votre variable d'environnement `PATH`, qui répertorie les emplacements où le programme est recherché lorsque vous souhaitez le lancer. 
+
+> Comment ajouter un répertoire au `PATH` ? [Voir comment faire sur Windows](https://learn.microsoft.com/fr-fr/previous-versions/office/developer/sharepoint-2010/ee537574(v=office.14)), [comment faire sur macOS](https://quick-tutoriel.com/ajouter-rapidement-un-nouveau-repertoire-au-path-de-mac-osx/).
+
+Au besoin, déplacez-vous dans un dossier de votre choix avec la commande `cd`. Cloner le dépôt avec la commande suivante :
+
+~~~bash
+git clone https://github.com/paul-schuhm/developpement-cote-client-js
+~~~
+
+Le dépôt est téléchargé sur votre machine dans le dossier `developpement-cote-client-js`. Pour récupérer le contenu mis à jour, ouvrez un terminal à l'emplacement du dépôt (dans le dossier `developpement-cote-client-js`) puis lancez la commande
+
+~~~bash
+git pull
+~~~
+
+Toutes les mises à jour (nouvelles démos, corrections, exercices, etc.) seront téléchargées automatiquement sur votre machine.
+
+## Module 02 - Premiers pas avec Javascript
 
 - [Accéder aux démos](./demos/)
+- [Accéder aux exercices](./exercices/module-02-exercices.md)
 
 
 ## Références

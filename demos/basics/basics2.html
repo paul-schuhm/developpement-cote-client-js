@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <h1>Module 2 - Les bases de Javascript (suite)</h1>
+
+        <h2>Notions abordées</h2>
+
+        <p style="color: green">Boucles for, parcours de tableau, test avec if, opérateur modulo</p>
+
+        <p style="color:red"> Penser à afficher la console dans votre navigateur, commenter/décommenter le code dans la
+            balise script pour tester votre compréhension</p>
+
+
+        <script>
+
+            //1. Fonction qui calcule la somme des arguments au carré
+
+            //Déclaration  de la fonction
+            function sumSquare(...numbers) {
+
+                let sum = 0;
+
+                //Maintenant, numbers contient un tableau de valeurs
+                for (let number of numbers) {
+                    //Je calcule le carré de chaque nombre et je l'ajoute à la somme
+                    sum = sum + number * number;
+                }
+
+                return sum;
+
+            }
+            //Appel la fonction en lui passant des valeurs en argument
+            let result = sumSquare(3, 4, 5);
+            console.log(result);
+
+            //2. Calculer la somme des nombres pairs
+            function sumEven(...numbers) {
+
+                let sum = 0;
+
+                //Maintenant, numbers contient un tableau de valeurs
+                for (let number of numbers) {
+
+                    //Test si le nombre est pair. S'il est pair, je l'ajoute dans 
+                    //la somme. Sinon, je ne fais rien (je l'écarte)
+
+                    let isEven = number % 2 == 0;
+
+                    //Si c'est pair, je l'ajoute à la somme
+                    if (isEven) {
+                        sum = sum + number;
+                    }
+
+                    //Sinon, je ne l'ajoute pas. Je passe au nombre suivant.
+                }
+
+                return sum; 
+            }
+
+            console.log(sumEven(1, 2, 3, 4));
+
+        </script>
+    </body>
+
+</html>
