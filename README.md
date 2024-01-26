@@ -2,6 +2,16 @@
 
 Ce dépôt contient tout le code source Javascript (et HTML) du module *Développement Front-End* (côté client). Vous y retrouverez les démos réalisées en cours, les exercices et leurs corrections.
 
+- [Développement côté client avec Javascript](#développement-côté-client-avec-javascript)
+  - [Utiliser le dépôt](#utiliser-le-dépôt)
+    - [Prérequis](#prérequis)
+    - [Récupérer le contenu du dépôt](#récupérer-le-contenu-du-dépôt)
+  - [Module 02 - Premiers pas avec Javascript](#module-02---premiers-pas-avec-javascript)
+  - [Références](#références)
+    - [Documentation officielle](#documentation-officielle)
+    - [Ouvrages](#ouvrages)
+
+
 ## Utiliser le dépôt
 
 Vous pouvez consulter le contenu du dépôt directement sur le web, comme n'importe quel site web. Vous pouvez également télécharger le contenu sous forme d'archive en cliquant sur `Code` (bouton vert) puis `Download ZIP`.
@@ -14,7 +24,7 @@ Télécharger et installer [git](https://git-scm.com/downloads) pour votre syst�
 
 > Sur macOs et GNU/Linux, vérifier que le programme `git` est sur le `PATH`.
 
-## Récupérer le contenu du dépôt 
+### Récupérer le contenu du dépôt 
 
 Ouvrir un terminal. 
 
