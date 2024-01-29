@@ -7,6 +7,7 @@ Ce dépôt contient tout le code source Javascript (et HTML) du module *Dévelop
     - [Prérequis](#prérequis)
     - [Récupérer le contenu du dépôt](#récupérer-le-contenu-du-dépôt)
   - [Module 02 - Premiers pas avec Javascript](#module-02---premiers-pas-avec-javascript)
+  - [Module 03 - Les objets Javascript](#module-03---les-objets-javascript)
   - [Références](#références)
     - [Documentation officielle](#documentation-officielle)
     - [Ouvrages](#ouvrages)
@@ -52,7 +53,9 @@ Toutes les mises à jour (nouvelles démos, corrections, exercices, etc.) seront
 
 - [Accéder aux démos](./demos/)
 - [Accéder aux exercices](./exercices/module-02-exercices.md)
+- [Accéder à la correction des exercices](./exercices/corrections/)
 
+## Module 03 - Les objets Javascript
 
 ## Références
 

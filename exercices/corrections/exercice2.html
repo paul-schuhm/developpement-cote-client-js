@@ -13,7 +13,7 @@
 
         <script>
 
-            const numbers = [1, 5, 32, 27, 12, -5, 100, -1.5, 230];
+            const numbers = [1, 5, 32, 27, 12, -5, 100, -1.5, 230, 1250];
             const letters = ['a', 'z', 'b', 'u', 'r', 'g'];
 
             //1. Une fonction qui retourne la somme des nombres
@@ -52,6 +52,32 @@
             //3. Valeurs min et max
 
             // console.log('Min:', Math.max())
+
+            //Initialisation des valeurs min et max
+            let min = numbers[0];
+            let max = numbers[0];
+
+            for (let number of numbers) {
+
+                //On a trouvé un nombre plus petit que min,
+                //ça devient notre nouveau minimum
+                if (number < min) {
+                    min = number;
+                }
+
+                //On a trouvé un nombre plus grand que max,
+                //ça devient notre nouveau maximum
+                if (number > max) {
+                    max = number;
+                }
+            }
+
+            console.log('Min : ', min);
+            console.log('Max :' , max);
+
+            //Ou utiliser Maths.min() fournie par JS
+            console.log('Min : ', Maths.min(numbers));
+            console.log('Max : ', Maths.max(numbers));
 
 
             // average([]); // Si aucun élément
