@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <h1>Exercice 5</h1>
+
+        <script>
+
+            //Retourne un nombre aléatoire compris entre 0 et 1
+            function randomNumber() {
+                return Math.random();
+            }
+
+            function tossCoin() {
+                //Nombre aléatoire compris entre 0 et 1
+                let random = randomNumber();
+                if (random < 0.5) {
+                    return 'Pile';
+                } else {
+                    return 'Face';
+                }
+            }
+
+            let nPile = 0;
+            let nFace = 0;
+            let nbExperiments = 10000;
+            //Simulation de 10 000 lancers de pièce
+            for (let i = 0; i < nbExperiments; i++) {
+                let coin = tossCoin();
+                if (coin === 'Pile') {
+                    nPile = nPile + 1;
+                }
+                if (coin === 'Face') {
+                    nFace = nFace + 1;
+                }
+            }
+
+            console.log("Probabilité d'obtenir pile: ", nPile / nbExperiments);
+            console.log("Probabilité d'obtenir face: ", nFace / nbExperiments);
+
+
+
+            // 4. Une fonction qui simule un jet de dés à 6 faces
+            function rollDice() {
+
+                //Nombre aléatoire entre 0 et 1
+                let u = randomNumber();
+
+                //Transformer ce nombre entre 1 et 6
+                return Math.floor(u * 6) + 1;
+
+            }
+
+            //J'effectue des lancers de dé
+            for (let i = 1; i < 200; i++) {
+                console.log(rollDice());
+            }
+
+
+            //On généralise l'idée de lancer d'un dé à N faces,
+            //où chaque face est numérotée de 1 à N
+            function rollDice2(nbFaces = 6) {
+
+                //Nombre aléatoire entre 0 et 1
+                let u = randomNumber();
+
+                //Transformer ce nombre entre 1 et 6
+                return Math.floor(u * nbFaces) + 1;
+
+            }
+
+            for (let i = 1; i < 200; i++) {
+                console.log(rollDice2(120));
+            }
+
+
+        </script>
+
+    </body>
+
+</html>
