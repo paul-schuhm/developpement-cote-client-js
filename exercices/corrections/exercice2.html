@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <h1>Exercice 2</h1>
+
+        <script>
+
+            const numbers = [1, 5, 32, 27, 12, -5, 100, -1.5, 230];
+            const letters = ['a', 'z', 'b', 'u', 'r', 'g'];
+
+            //1. Une fonction qui retourne la somme des nombres
+
+            function sum(numbers) {
+                let sum = 0;
+                for (let number of numbers) {
+                    sum = sum + number;
+                    // sum += number (syntaxe alternative, plus compacte)
+                }
+                return sum;
+            }
+
+            console.log('Somme: ', sum(numbers));
+
+            //2. Calculer la moyenne des nombres
+            function average(numbers) {
+
+                //Pour garantir qu'il n'y ait pas de division par zéro !
+                //Si aucun élément dans le tableau, on annule le calcul (retourne)
+                if (numbers.length === 0) {
+                    return;
+                    //Lever une erreur
+                    // throw new Error();
+                }
+
+                //Moyenne = somme / nombre d'éléments
+                let total = sum(numbers);
+
+                return total / numbers.length;
+            }
+
+            console.log('Moyenne: ', numbers);
+            console.log('Moyenne: ', []);
+
+            //3. Valeurs min et max
+
+            // console.log('Min:', Math.max())
+
+
+            // average([]); // Si aucun élément
+
+        </script>
+
+    </body>
+
+</html>
