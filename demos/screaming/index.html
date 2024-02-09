@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>scream</title>
+
+        <style>
+            html {
+                font-size: 48px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <p class="scream">A H </p>
+
+        <script>
+
+            function scream() {
+                let screamText = document.querySelector('.scream');
+                screamText.textContent = screamText.textContent + 'H' + '\n';
+            }
+
+            setInterval(scream, 30);
+        </script>
+        </script>
+    </body>
+
+</html>
