@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>input events</title>
+    </head>
+
+    <body>
+
+        <h1>Réagir aux inputs utilisateur</h1>
+
+        <input type="button" value="Click me">
+
+        <select name="" id="my-select">
+            <option value="foo">Foo</option>
+            <option value="bar">Bar</option>
+            <option value="baz">Baz</option>
+        </select>
+
+        <input type="checkbox" name="" id="" value="ok">
+
+        <input type="text">
+
+        <p id="parrot"></p>
+
+        <input type="range" name="" id="">
+
+        <p id="slider-value"></p>
+
+        <script>
+
+            //On récupère les éléments HTML (éléments du DOM)
+
+            var btn = document.querySelector('input[type="button"]');
+            var select = document.getElementById('my-select');
+            var checkbox = document.querySelector('input[type="checkbox"]');
+            var text = document.querySelector('input[type="text"]');
+            var range = document.querySelector('input[type="range"]');
+
+            console.log(btn, select, checkbox, text, range);
+
+            //On enregistre des écouteurs d'évènements (fonctions à exécuter lorsque l'évènement est détecté)
+
+            btn.addEventListener('click', function () {
+                console.log('Le bouton a été cliqué !');
+            });
+
+            btn.addEventListener('mouseover', function () {
+                console.log('Le bouton a été survolé !');
+            });
+
+            select.addEventListener('change', function () {
+                console.log('Le choix a changé ! Choix actuel : ' + select.value)
+            })
+
+            checkbox.addEventListener('change', function () {
+                console.log('La checkbox a été cliquée ' + checkbox.value + " Cochée : " + checkbox.checked);
+            });
+
+            text.addEventListener('input', function(){
+                // console.log('Du texte est saisi dans l\'input !');
+                let parrot = document.querySelector('p#parrot');
+                parrot.innerText =  text.value.toUpperCase();
+            });
+
+            range.addEventListener('change', function(){
+                console.log('La valeur du slider a changé ! ');
+                let pSliderValue = document.getElementById('slider-value');
+                pSliderValue.innerText = range.value;
+            });
+
+
+        </script>
+
+
+    </body>
+
+</html>
