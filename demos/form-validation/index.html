@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+            /* Juste pour que notre exemple soit plus joli */
+            body {
+                font: 1em sans-serif;
+                padding: 0;
+                margin: 0;
+            }
+
+            form {
+                max-width: 200px;
+            }
+
+            p * {
+                display: block;
+            }
+
+            input[type="email"] {
+                -webkit-appearance: none;
+
+                width: 100%;
+                border: 1px solid #333;
+                margin: 0;
+
+                font-family: inherit;
+                font-size: 90%;
+
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            /* Voici notre composition pour les champs invalides */
+            input:invalid {
+                border-color: #900;
+                background-color: #fdd;
+            }
+
+            input:focus:invalid {
+                outline: none;
+            }
+
+            /* Voici la mise en forme pour les erreurs */
+            .error {
+                width: 100%;
+                padding: 0;
+
+                font-size: 80%;
+                color: white;
+                background-color: #900;
+                border-radius: 0 0 5px 5px;
+
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            .error.active {
+                padding: 0.3em;
+            }
+        </style>
+    </head>
+
+    <body>
+        <form novalidate method="POST" action="/submit-email">
+            <p>
+                <label for="mail">
+                    <span>Veuillez saisir une adresse e-mail :</span>
+                    <input type="email" id="mail" name="mail" />
+                    <span class="error" aria-live="polite"></span>
+                </label>
+            </p>
+
+            <p>
+                <button>Envoyer</button>
+            </p>
+        </form>
+    </body>
+
+    <script>
+        var form = document.getElementsByTagName("form")[0];
+        var email = document.getElementById("mail");
+        var error = document.querySelector(".error");
+
+        email.addEventListener(
+            "input",
+            function (event) {
+                // Chaque fois que l'utilisateur saisit quelque chose
+                // on vérifie la validité du champ e-mail.
+                if (email.validity.valid) {
+                    // S'il y a un message d'erreur affiché et que le champ
+                    // est valide, on retire l'erreur
+                    error.innerHTML = ""; // On réinitialise le contenu
+                    error.className = "error"; // On réinitialise l'état visuel du message
+                }
+            },
+            false,
+        );
+        form.addEventListener(
+            "submit",
+            function (event) {
+                // Chaque fois que l'utilisateur tente d'envoyer les données
+                // on vérifie que le champ email est valide.
+                if (!email.validity.valid) {
+                    // S'il est invalide, on affiche un message d'erreur personnalisé
+                    error.innerHTML =
+                        "J'attends une adresse e-mail correcte, mon cher&nbsp;!";
+                    error.className = "error active";
+                    // Et on empêche l'envoi des données du formulaire (évènement de type 'submit')
+                    // Qui aurait pour conséquence d'émettre une requête HTTP (et de recharger la page coté client)
+                    event.preventDefault();
+                }
+            },
+            false,
+        );
+
+    </script>
+
+</html>

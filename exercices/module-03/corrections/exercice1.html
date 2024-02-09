@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <script>
+
+            let student1 = {
+                name: 'Jane',
+                age: 25,
+                courses: ['Arts', 'Sociology', 'Computer Science']
+            };
+
+            let student2 = {
+                name: 'John',
+                age: 23,
+                courses: ['Biology', 'Computer Science']
+            };
+
+            //Généraliser la construction d'objets de type 'Student'
+            function Student(name, age, courses) {
+                this.name = name;
+                this.age = age;
+                this.courses = courses;
+            }
+
+            let jane = new Student('John', 23, ['Biology', 'Computer Science']);
+
+        </script>
+
+    </body>
+
+</html>

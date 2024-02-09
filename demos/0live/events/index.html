@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+            html {
+                font-size: 2em;
+            }
+
+            p {
+                padding: 4px;
+                border: 1px solid red;
+            }
+
+            .clicked {
+                text-decoration: underline;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <h1>Gestion des évènements</h1>
+
+        <section>
+            <!-- Quand je clique sur cet élément, ajouter une classe spéciale-->
+            <p>Un premier paragraphe dans la section.</p>
+            <p>Un deuxième paragraphe dans la section.</p>
+
+            <div>
+                <div>
+                    <div></div>
+                </div>
+            </div>
+
+        </section>
+
+        <p id="foo">Un paragraphe dans le body</p>
+
+        <script>
+
+            var firstP = document.querySelector('p');
+            //On déclare une fonction qui écoute l'évènement 'click' sur
+            //l'élément firstP (executer la fonction associée)
+            firstP.addEventListener('click', function (event) {
+
+                console.dir(event);
+
+                //target : référence vers l'élément HTML qui est à l'origine
+                //de l'écoute de l'évènement. Ici, event.target identique à firstP
+
+                //Tester si la classe 'clicked' est présente ?
+                //Rq : on suppose que seule la classe 'clicked' qui est définie
+                //sur cet élément.
+                if (event.target.classList.length === 0) {
+                    //Classe absente, on l'ajoute
+                    event.target.classList.add('clicked');
+                } else {
+                    event.target.classList.remove('clicked');
+                }
+            });
+
+
+            //setTimeOut : appel fonction avec un délai
+            setTimeout(function () {
+                console.log('Hello world !');
+            }, 5000);
+
+            //appel fonction de manière répétée 
+            setInterval(function () {
+                console.log('Appel répété')
+            }, 2000);
+
+        </script>
+    </body>
+
+</html>

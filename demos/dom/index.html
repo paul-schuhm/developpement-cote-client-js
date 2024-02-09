@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .error {
+                color: red;
+            }
+
+            .success {
+                color: green;
+            }
+
+            span {
+                font-weight: bold;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h1>Manipuler le DOM</h1>
+        <h2 class="size600">Un sous titre</h2>
+        <p>Lorem ipsum</p>
+        <p id="foo">Un autre paragraphe avec un id</p>
+        <ul>
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+        </ul>
+
+        <h2 class="size600">Un deuxième sous titre</h2>
+
+        <button id="hide-lastp">Masquer le dernier paragraphe</button>
+        <button id="change-bg">Change la couleur de l'arrière-plan</button>
+        <label for="range-fontsize">Ajuster la taille de la police</label>
+        <input type="range" name="range-fontsize" id="range-fontsize">
+
+
+        <section>
+
+            <p>Un autre paragraphe</p>
+
+        </section>
+
+        <script>
+
+            //Sélectionne le premier élément h2 qui a la classe size600
+            var h2 = document.querySelector('h2.size600');
+
+            //Modifier le texte du titre
+            h2.innerText = "Le sous titre a changé";
+
+            //Récupérer tous les h2 avec la classe size600
+            var h2s = document.querySelectorAll('h2.size600');
+            console.log(h2s)
+
+            //Récupérer un paragraphe p avec l'id foo
+            console.log(document.querySelector('p#foo'));
+
+            //Sélectionne tous les éléments paragraphes (balise p) du document
+            var paragraphs = document.getElementsByTagName('p');
+            for (let i = 0; i !== paragraphs.length; i++) {
+                console.log(paragraphs[i])
+                paragraphs[i].innerText = paragraphs[i].innerText + ` [Paragraphe numéro ${i}]`
+            }
+
+            //Crée un nouvel élément
+            var newParagraph = document.createElement('p');
+            //Lui mettre un id bar
+            newParagraph.setAttribute('id', 'bar');
+            //Modifier son contenu textuel
+            newParagraph.innerText = "Ce paragraphe a entièrement été généré en JS";
+            //Lui mettre une classe 'error'
+            newParagraph.setAttribute('class', 'error');
+            console.log(newParagraph)
+            //Insérer le paragraphe dans le document, dans la première section trouvée
+            var section = document.querySelector('section');
+            section.appendChild(newParagraph)
+
+            //Sélectionner le dernier paragraphe de la section
+            var firstParagraph = document.querySelector('section p:first-child')
+            var lastParagraph = document.querySelector('section p:last-child')
+            //Modifier le contenu texte
+            firstParagraph.innerText = "Nouveau <span>contenu HTML</span> généré en Javascript";
+            //Modifier le contenu HTML
+            lastParagraph.innerHTML = "Nouveau <span>contenu HTML</span> généré en Javascript";
+            //Modifier une propriété de style
+            lastParagraph.style.fontSize = "4em";
+            lastParagraph.style.background = "blue";
+            lastParagraph.style.padding = "12px 24px";
+            lastParagraph.style.letterSpacing = "-2px";
+            lastParagraph.style.wordSpacing = "42px";
+
+            //Enregistrer un écouteur d'évènement sur le click du bouton 'hide-lastp'
+            const btnHideLastP = document.querySelector('button#hide-lastp');
+
+            btnHideLastP.addEventListener('click', function (event) {
+                let lastParagraph = document.querySelector('section p:last-child')
+                //Si le paragraphe est caché l'afficher, et inversement
+                lastParagraph.hidden = lastParagraph.hidden ? false : true;
+                //Ajuster le texte du bouton en fonction de l'état du paragraphe (caché ou non)
+                btnHideLastP.innerText = lastParagraph.hidden ? "Afficher le dernier paragraphe" : "Masquer le dernier paragraphe";
+            })
+
+
+            const btnChangeBg = document.querySelector("button#change-bg");
+
+            // Modifie la couleur de l'arrière plan du document (couleur RGB aléatoire)
+            function changeBackgroundColor() {
+                let randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+                document.body.style.backgroundColor = randomColor;
+            }
+
+            //On enregistre le gestionnaire d'évènement sur l'élément btn
+            btnChangeBg.addEventListener("click", changeBackgroundColor);
+
+
+            //Enregistrer un écouteur d'évènement sur le range (slider)
+            var range = document.querySelector("#range-fontsize");
+
+            range.addEventListener('input', function (event) {
+                console.log("Nouvelle position du range : " + range.value)
+                lastParagraph.style.fontSize = range.value + "px";
+            })
+
+            // Ajouter une classe
+            firstParagraph.classList.add('success');
+
+            setTimeout(function () {
+                console.log("Code exécuté avec une seconde (au moins) de retard.")
+            }, 1000);
+            setInterval(function () {
+                console.log("Code exécuté toutes les secondes")
+            }, 1000);
+
+            document.addEventListener('mousemove', function (event) {
+                var mouseX = event.clientX;
+                var mouseY = event.clientY;
+                console.log('Position de la souris - X: ' + mouseX + ', Y: ' + mouseY);
+            });
+
+        </script>
+    </body>
+
+</html>

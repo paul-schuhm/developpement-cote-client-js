@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Déplacer un Paragraphe</title>
+        <style>
+            /* Ajoutez un style de base au paragraphe */
+            #dragable {
+                position: absolute;
+                top: 50px;
+                left: 100px;
+                padding: 12px;
+                border: 1px solid black;
+                color: white;
+                cursor: grab;
+                background-color: blue;
+                /* Empecher la selection du texte */
+                user-select: none;
+                /* Changez le curseur pour indiquer que l'élément est déplaçable */
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <p id="dragable">Déplacez moi !</p>
+
+        <script>
+            var isDragging = false;
+            var offsetX, offsetY;
+
+
+            var dragable = document.querySelector('p#dragable');
+            dragable.addEventListener('mousedown', initierDeplacement);
+
+            function initierDeplacement(event) {
+                isDragging = true;
+
+                // Stockez la position initiale de la souris par rapport au coin supérieur gauche du paragraphe
+                offsetX = event.clientX - document.getElementById('dragable').getBoundingClientRect().left;
+                offsetY = event.clientY - document.getElementById('dragable').getBoundingClientRect().top;
+
+                // Ajoutez des écouteurs d'événements pour suivre le mouvement de la souris et arrêter le déplacement
+                document.addEventListener('mousemove', deplacerParagraphe);
+                document.addEventListener('mouseup', arreterDeplacement);
+            }
+
+            function deplacerParagraphe(event) {
+                if (isDragging) {
+                    // Déplacez le paragraphe en fonction de la position de la souris
+                    document.getElementById('dragable').style.left = event.clientX - offsetX + 'px';
+                    document.getElementById('dragable').style.top = event.clientY - offsetY + 'px';
+                }
+            }
+
+            function arreterDeplacement() {
+                isDragging = false;
+
+                // Supprimez les écouteurs d'événements pour arrêter le suivi du mouvement de la souris
+                document.removeEventListener('mousemove', deplacerParagraphe);
+                document.removeEventListener('mouseup', arreterDeplacement);
+            }
+        </script>
+
+    </body>
+
+</html>

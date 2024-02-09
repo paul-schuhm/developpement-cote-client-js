@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta lang="fr">
+        <meta charset="utf-8">
+        <title>Guess the number</title>
+        <meta name="description" content="Un jeu où il faut deviner un nombre">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            /* Le style de la page */
+            
+        </style>
+    </head>
+
+    <body>
+
+        <header>
+            <h1>Guess my number</h1>
+        </header>
+
+        <main>
+
+            <section>
+            
+            <h2>Jouer une partie</h2>
+            
+            <p>Un nombre aléatoire entre 0 et 100 a été tiré. Sauras tu le retrouver ?</p>
+            
+            <input min="0" max="100" type="number"/>
+            <button>Valider</button>
+            <p></p>
+ 
+            </section>
+
+        </main>
+
+        <footer>
+            <small>
+                Ceci est une page web à but pédagogique.
+            </small>
+        </footer>
+
+        <script>
+            // Le code de la page (Javascript)
+            
+            var randomNumberToFind = Math.random()
+            
+            console.log('Nombre a trouver : ' + randomNumberToFind)
+
+
+
+        </script>
+    </body>
+
+</html>

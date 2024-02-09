@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>dom</title>
+
+        <style>
+            /* On déclare des classes CSS */
+
+            .error {
+                color: red;
+                font-size: 3em;
+                padding: 12px;
+                background-color: black;
+                border : 1px solid yellow;
+            }
+
+            .success {
+                color: green;
+            }
+
+            span{
+                font-weight: bold;
+            }
+            .clicked{
+                text-decoration: dashed;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <h1>Manipulation du DOM</h1>
+
+        <section>
+             <!-- Quand je clique sur cet élément, ajouter une classe spéciale-->
+            <p>Un premier paragraphe dans la section.</p>
+            <p>Un deuxième paragraphe dans la section.</p>
+
+            <div>
+                <div>
+                    <div></div>
+                </div>
+            </div>
+
+        </section>
+
+        <p id="foo">Un paragraphe dans le body</p>
+
+        <script>
+            //L'objet pInSection représente le noeud (le paragraphe)
+            var pInSection = document.querySelector('section p');
+            // console.dir(pInSection);
+            //Modifier sa propriété texte (contenu brut)
+            pInSection.innerText = "Contenu du paragraphe a changé !";
+
+            //Sélectionner tous les paragraphes du document
+            var ps = document.querySelectorAll('p');
+
+            //Facteur de croissance de la taille de la font
+            let factor = 1;
+            //Taille initiale
+            let baseFontSize = 1.4;
+            for (let p of ps) {
+                //Change le contenu (texte brut)
+                p.innerText = "Lorem ipsum";
+                //Changer la couleur du texte
+                p.style.color = 'red';
+                //Change la taille de la font via la propriété style
+                // p.style.fontSize = "12em";
+                //Exemple : chaque paragraphe va apparaître 2x fois grand que le précédent
+                p.style.fontSize = factor * baseFontSize + "em"
+                factor = factor * 2;
+            }
+            // console.dir(ps)
+
+            //Sélectionner par identifiant
+            var pFoo = document.getElementById('foo');
+            pFoo.style.backgroundColor = 'green';
+
+            //Sélectionner par type d'élément
+            var divs = document.getElementsByTagName('div');
+            // console.dir("Il y a " + divs.length + " div dans mon document");
+
+            //Créer un élément de manière dynamique
+            var newP = document.createElement('p');
+
+            let date = (new Date()).toLocaleString('fr-FR', {
+                weekday: 'short',
+                day: 'numeric',
+                month: 'short',
+                year: '2-digit',
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric'
+            });
+
+            // newP.innerText = "Ce paragraphe a été généré dynamiquement. Voici la date et l'heure du jour : " + date
+            newP.innerText = "Foo bar";
+            //On récupère l'élément parent (la section ici)
+            var section = document.querySelector('section');
+            //On insere le paragraphe crée sur le DOM comme dernier enfant de la section
+            section.appendChild(newP);
+
+
+            //Ajouter/Retirer une classe CSS
+
+            //Inspecter la liste des classes de l'élément
+            console.dir(newP.classList)
+            //Ajouter la classe 'error' au paragraphe
+            newP.classList.add('error');
+            //Retirer la classe 'error'
+            // newP.classList.remove('error');
+            // Remplace la classe 'error' par la classe 'success'
+            newP.classList.replace('error', 'success');
+
+            console.log("className = ", newP.className);
+            console.log("innerText =", newP.innerText);
+
+            //Permet de modifier le texte brut d'un élément (tout élément HTML est échappé et non interprété !)
+            newP.innerText = "Le texte contient un élément HTML <span>span</span>";
+
+            //Permet de modifier le contenu HTML d'un élément
+            newP.innerHTML = "Le texte contient un élément HTML <span>span</span>";
+            
+
+        </script>
+
+    </body>
+
+</html>

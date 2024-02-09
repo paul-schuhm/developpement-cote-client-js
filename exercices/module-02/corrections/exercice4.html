@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <h1>Exercice 4 : Fizz Buzz</h1>
+
+
+        <script>
+
+            // 1. Fizz Buzz procédural
+
+            function fizzBuzz(n) {
+
+                let game = '';
+
+                for (let i = 0; i !== n; i++) {
+
+                    let answer = '';
+
+                    if (i % 3 === 0) {
+                        answer += 'Fizz';
+                    }
+
+                    if (i % 5 === 0) {
+                        answer += "Buzz";
+                    }
+
+                    if (answer.length === 0) {
+                        answer = n;
+                    }
+
+                    game += answer;
+
+                }
+
+                return game;
+            }
+
+            let game = fizzBuzz(20);
+            console.log(game);
+
+            //2. Fizz Buzz récursif
+
+            function fizzBuzzRecursif(n) {
+
+                if (n === 1)
+                    return '1';
+
+                if (n % 5 === 0 && n % 3 === 0)
+                    return fizzBuzzRecursif() + 'Fizz Buzz';
+
+                if (n % 3 === 0)
+                    return fizzBuzzRecursif() + 'Fizz';
+
+                if (n % 5 === 0)
+                    return fizzBuzzRecursif() + 'Fizz';
+            }
+
+            game = fizzBuzzRecursif(20);
+            console.log(game);
+
+        </script>
+    </body>
+
+</html>
