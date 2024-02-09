@@ -6,6 +6,7 @@ Ce dépôt contient tout le code source Javascript (et HTML) du module *Dévelop
   - [Utiliser le dépôt](#utiliser-le-dépôt)
     - [Prérequis](#prérequis)
     - [Récupérer le contenu du dépôt](#récupérer-le-contenu-du-dépôt)
+  - [Démos](#démos)
   - [Module 02 - Premiers pas avec Javascript](#module-02---premiers-pas-avec-javascript)
   - [Module 03 - Les objets Javascript](#module-03---les-objets-javascript)
   - [Références](#références)
@@ -49,9 +50,13 @@ git pull
 
 Toutes les mises à jour (nouvelles démos, corrections, exercices, etc.) seront téléchargées automatiquement sur votre machine.
 
-## Module 02 - Premiers pas avec Javascript
+## Démos
 
 - [Accéder aux démos](./demos/)
+- [Accéder aux démos faites en cours (live)](./demos/0live/)
+
+## Module 02 - Premiers pas avec Javascript
+
 - [Accéder aux exercices](./exercices/module-02-exercices.md)
 - [Accéder à la correction des exercices](./exercices/corrections/)
 
