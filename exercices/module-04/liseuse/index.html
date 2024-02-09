@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+
+        <style>
+            :root {
+                --main-color-dark: rgb(44, 44, 44);
+                --main-color-light: rgb(249, 249, 249);
+            }
+
+            .dark {
+                background-color: var(--main-color-dark);
+                color: var(--main-color-light);
+            }
+
+            .light {
+                background-color: var(--main-color-light);
+                color: var(--main-color-dark);
+            }
+        </style>
+
+    </head>
+
+    <body class="light">
+
+        <h1>Liseuse</h1>
+
+
+        <aside>
+            <p>Utiliser les contrôles pour adapter l'affichage à vos préférence</p>
+
+            <div>
+                <label for="bg-color-picker">Choisir la couleur d'arrière plan :</label>
+                <input type="color" name="" id="bg-color-picker">
+            </div>
+
+
+            <div>
+                <label for="color-picker">Choisir la couleur du texte :</label>
+                <input type="color" name="" id="color-picker">
+            </div>
+
+            <div>
+                <label for="space-letter-ranger">Choisir l'espacement entre les lettres</label>
+                <input type="range" name="" id="space-letter-range" value="0" min="-0.1" max="0.11" step="0.02">
+            </div>
+
+            <div>
+                <label for="word-letter-ranger">Choisir l'espacement entre les mots</label>
+                <input type="range" name="" id="space-word-range" value="0" min="-1" max="1" step="0.1">
+            </div>
+
+            <div>
+                <label for="font-size-selector">Choisir la taille des caractères :</label>
+                <select name="" id="font-size-selector">
+                    <option value="none" disabled>Choisir la taille de la police</option>
+                    <option value="small">Petite</option>
+                    <option value="medium" selected>Moyenne</option>
+                    <option value="large">Grande</option>
+                    <option value="extra-large">Très grande</option>
+                </select>
+            </div>
+
+        </aside>
+
+        <main>
+
+            <h2>Lorem ipsum</h2>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </p>
+
+        </main>
+
+
+        <script>
+
+            var colorPickerBg = document.querySelector('input[type="color"]#bg-color-picker');
+            colorPickerBg.addEventListener('change', function () {
+                document.body.style.backgroundColor = colorPickerBg.value;
+                console.log(colorPickerBg.value);
+            });
+
+            var colorPicker = document.querySelector('input[type="color"]#color-picker');
+            colorPicker.addEventListener('change', function () {
+                document.body.style.color = colorPicker.value;
+                console.log(colorPicker.value);
+            });
+
+            var spaceLetterPicker = document.querySelector('input[type="range"]#space-letter-range');
+            spaceLetterPicker.addEventListener('input', function () {
+                let main = document.querySelector('main');
+                main.style.letterSpacing = spaceLetterPicker.value + "em";
+            });
+
+            var spaceWordPicker = document.querySelector('input[type="range"]#space-word-range');
+
+            spaceWordPicker.addEventListener('input', function () {
+                let main = document.querySelector('main');
+                main.style.wordSpacing = spaceWordPicker.value + "em";
+            });
+
+            var fontSizeSelector = document.getElementById('font-size-selector');
+            fontSizeSelector.addEventListener('change', function () {
+                let main = document.querySelector('main');
+                const newFontSizeSelected = fontSizeSelector.value;
+                switch (newFontSizeSelected) {
+                    case "small":
+                        main.style.fontSize = ".8em";
+                        break;
+
+                    case "medium":
+                        main.style.fontSize = "1.1em";
+                        break;
+
+                    case "large":
+                        main.style.fontSize = "1.3em";
+                        break;
+
+                    case "extra-large":
+                        main.style.fontSize = "1.7em";
+                        break;
+                    default:
+                        console.log("Taille de police inconnue");
+                }
+            })
+
+        </script>
+
+    </body>
+
+</html>

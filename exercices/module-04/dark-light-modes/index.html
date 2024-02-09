@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+
+        <style>
+            :root {
+                --main-color-dark: rgb(44, 44, 44);
+                --main-color-light: rgb(249, 249, 249);
+            }
+
+            .dark {
+                background-color: var(--main-color-dark);
+                color: var(--main-color-light);
+            }
+
+            .light {
+                background-color: var(--main-color-light);
+                color: var(--main-color-dark);
+            }
+        </style>
+
+    </head>
+
+    <body class="light">
+
+        <h1>Dark Mode / Light Mode</h1>
+
+        <aside>
+            <input type="button" value="Passer en dark mode">
+        </aside>
+
+        <section>
+
+            <h2>Lorem ipsum</h2>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </p>
+
+        </section>
+
+
+        <script>
+
+            var btn = document.querySelector('input[type="button"]');
+            btn.addEventListener('click', function () {
+                if (document.body.classList.contains('light')) {
+                    document.body.classList.replace('light', 'dark');
+                    btn.value = "Passer en light mode";
+                } else {
+                    document.body.classList.replace('dark', 'light');
+                    btn.value = "Passer en dark mode";
+                }
+            });
+        </script>
+
+    </body>
+
+</html>
