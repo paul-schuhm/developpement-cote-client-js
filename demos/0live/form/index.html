@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulaire</title>
+    </head>
+
+    <body>
+        <!-- Formulaire-->
+
+        <h1>Formulaire HTML et inputs</h1>
+
+        <h2>Formulaire de connexion</h2>
+        <form action="" method="">
+            <!-- Question ouverte-->
+            <!-- Champ texte-->
+            <label for="login">Login :
+                <input type="text" id="login" placeholder="Your login here...">
+            </label>
+            <!-- Champ password-->
+            <label for="password">Password:
+                <input type="password" name="" id="password">
+            </label>
+
+            <!-- Champ pour soumettre le formulaire -->
+            <input type="submit" value="Log in">
+        </form>
+
+        <h2>Inscription à une association</h2>
+
+        <form action="">
+
+            <div>
+                <label for="first-name">Prénom :
+                    <input type="text" id="first-name">
+                </label>
+            </div>
+
+
+            <div>
+                <label for="last-name">Nom :
+                    <input type="text" id="last-name">
+                </label>
+            </div>
+
+
+            <!-- Choix multiples-->
+            <label for="select-civilite">Choisir votre civilité :</label>
+            <select name="" id="select-civilite">
+                <option value="mr">Monsieur</option>
+                <option value="mme">Madame</option>
+                <option value="mlle">Mademoiselle</option>
+                <option value="none" selected>Ne se prononce pas</option>
+            </select>
+
+            <fieldset>
+                <legend> De quels animaux préférez-vous vous occuper ?</legend>
+                <label for="accept-cat">Chat
+                    <input type="checkbox" name="" id="accept-cat" value="chat" checked>
+                </label>
+                <label for="accept-dog">Chien
+                    <input type="checkbox" name="" id="accept-dog" value="chien">
+                </label>
+                <label for="accept-hamster">Hamster
+                    <input type="checkbox" name="" id="accept-hamster" value="hamster">
+                </label>
+                <label for="accept-autruche">Autruche
+                    <input type="checkbox" name="" id="accept-autruche" value="autruche">
+                </label>
+            </fieldset>
+
+            <!-- Choix exclusifs (oui/non), un choix parmi plusieurs -->
+
+            <fieldset>
+                <legend>Choisir un moyen de paiement pour vos cotisations :</legend>
+
+                <div>
+                    <label for="cb">Par carte bancaire</label>
+                    <input type="radio" id="cb" name="paiement" value="cb" checked />
+                </div>
+
+                <div>
+                    <label for="paypal">Paypal</label>
+                    <input type="radio" id="paypal" name="paiement" value="paypal" />
+                </div>
+            </fieldset>
+
+
+            <label for="nb-pets">Combien d'animaux domestiques possédez-vous actuellement chez vous ?
+                <input type="number" value="0" min="0" max="100" step="1" name="" id="nb-pets">
+            </label>
+
+            <label for="gift-amount">Montant du don
+                <input type="range" name="" id="gift-amount" min="10" max="50" step="10">
+            </label>
+
+
+
+        </form>
+
+
+        <h2>D'autres inputs à découvrir</h2>
+        <input type="color" name="" id="">
+        <input type="date" name="" id="">
+        <input type="datetime-local" name="" id="">
+        <input type="email" name="" id="">
+        <input type="file" name="" id="">
+
+    </body>
+
+</html>
