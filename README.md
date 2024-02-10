@@ -1,6 +1,6 @@
 # Développement côté client avec Javascript
 
-Ce dépôt contient tout le code source Javascript (et HTML) du module *Développement Front-End* (côté client). Vous y retrouverez les démos réalisées en cours, les exercices et leurs corrections.
+Ce dépôt contient tout le code source Javascript (et HTML) du module *Développement Front-End* (côté client), 1ère année (B1). Vous y retrouverez les démos réalisées en cours, les exercices et leurs corrections.
 
 - [Développement côté client avec Javascript](#développement-côté-client-avec-javascript)
   - [Utiliser le dépôt](#utiliser-le-dépôt)
@@ -9,7 +9,7 @@ Ce dépôt contient tout le code source Javascript (et HTML) du module *Dévelop
   - [Démos](#démos)
   - [Module 02 - Premiers pas avec Javascript](#module-02---premiers-pas-avec-javascript)
   - [Module 03 - Les objets Javascript](#module-03---les-objets-javascript)
-  - [Module 04 - Pages web dynamique](#module-04---pages-web-dynamique)
+  - [Module 04 - Pages web dynamiques](#module-04---pages-web-dynamiques)
   - [Références](#références)
     - [Documentation officielle](#documentation-officielle)
     - [Ouvrages](#ouvrages)
@@ -63,11 +63,11 @@ Toutes les mises à jour (nouvelles démos, corrections, exercices, etc.) seront
 
 ## Module 03 - Les objets Javascript
 
-## Module 04 - Pages web dynamique
+## Module 04 - Pages web dynamiques
 
 - [Accéder à la correction des exercices](./exercices/module-04/)
 
-> Les suggestions d'exercice sont présents sur la dernière page du support de cours PDF du module 4.
+> Les propositions d'exercice sont présentes sur la dernière page du support de cours PDF du module 4.
 
 ## Références
 
