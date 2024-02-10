@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <h1>Gérer les évènements liés aux inputs de formulaire</h1>
+
+        <p>Ouvrir la console pour voir les écouteurs d'évènement en action.</p>
+
+        <div>
+            <h2>Button</h2>
+            <input type="button" value="Click me">
+        </div>
+        <div>
+            <h2>Input text</h2>
+            <input type="text" value="Change me">
+        </div>
+
+        <div>
+            <h2>Select</h2>
+            <select name="my-select" id="my-select">
+                <option value="choose" selected>Choose an option</option>
+                <option value="foo">Foo</option>
+                <option value="bar">Bar</option>
+                <option value="baz">Baz</option>
+            </select>
+        </div>
+
+        <div>
+            <h2>Range</h2>
+            <input type="range" name="my-range" min="0" max="100" step="5" id="">
+        </div>
+
+
+        <div>
+            <h2>Checkbox</h2>
+            <fieldset>
+                <legend>Choose your monster's features:</legend>
+
+                <div>
+                    <input type="checkbox" id="scales" name="scales" checked />
+                    <label for="scales">Scales</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="horns" name="horns" />
+                    <label for="horns">Horns</label>
+                </div>
+            </fieldset>
+        </div>
+
+        <div>
+            <h2>Radio buttons</h2>
+            <fieldset>
+                <legend>Select a maintenance drone:</legend>
+
+                <div>
+                    <input type="radio" id="huey" name="drone" value="huey" checked />
+                    <label for="huey">Huey</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="dewey" name="drone" value="dewey" />
+                    <label for="dewey">Dewey</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="louie" name="drone" value="louie" />
+                    <label for="louie">Louie</label>
+                </div>
+            </fieldset>
+
+        </div>
+
+        <script>
+            var btn = document.querySelector('input[type="button"]');
+            var text = document.querySelector('input[type="text"]');
+            var select = document.getElementById('my-select');
+            var range = document.querySelector('input[type="range"]');
+            var checkbox = document.querySelector('input[type="checkbox"]');
+            var radio = document.querySelector('input[type="radio"]');
+            console.log(btn, text, select, range, radio)
+
+            //Ecouter les changements
+
+            btn.addEventListener('click', function (event) {
+                console.log('Bouton clicked');
+            });
+
+            text.addEventListener('input', function(){
+                console.log('Texte changé : ' + text.value)
+            });
+
+            select.addEventListener('change', function(event){
+                console.log("La valeur sélectionnée a changé :", select.value)
+            });
+
+            //Utiliser l'évènement 'input' pour suivre le changement de la valeur du curseur
+            //L'évènement 'change' est déclenché quand le curseur est relâché
+            range.addEventListener('change', function(event){
+                console.log(range.value)
+            });
+
+            checkbox.addEventListener('change', function(event){
+                console.log(checkbox.checked, checkbox.value)
+            });
+
+            radio.addEventListener('change', function(event){
+                console.log(radio.value)
+            })
+
+        </script>
+
+    </body>
+
+</html>
