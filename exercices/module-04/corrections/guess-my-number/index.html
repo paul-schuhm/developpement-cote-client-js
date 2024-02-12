@@ -40,8 +40,14 @@
 
 
         <script>
+        
+            //Implémentation à terminer !
 
             var numberToGuess;
+
+            var nbOfTries;
+
+            //Non implémenté ici (laissé en exercice)
             const maxNumberOfTries = 5;
 
             // Element qui référence le bouton de soumission du formulaire (proposition de nombre)
@@ -54,15 +60,15 @@
             //Element qui référence le paragraphe donnant un indice à l'utilisateur
             var pClue = document.getElementById('clue');
 
-            var nbOfTries = 0;
 
             //Définit l'état de l'interface au début d'une partie et reset l'état du jeu
             function initGame() {
+                numberToGuess = randomNumber(0, 100);
                 nbOfTries = 0;
-                numberToGuess = 50; //  randomNumber(0, 100);
                 btnResetGame.hidden = true;
                 btnSubmitGuess.disabled = false;
                 inputGuess.disabled = false;
+                //Reset la value d'inputGuess à 50
             }
 
             //Définit l'état de l'interface à la fin d'une partie
@@ -76,11 +82,6 @@
 
             //On initialise le jeu
             initGame();
-
-            //Retourne un entier compris entre min (inclus) et max (exclus)
-            function randomNumber(min, max) {
-                return min + Math.floor(Math.random() * max);
-            }
 
             btnSubmitGuess.addEventListener('click', function (event) {
 
@@ -109,6 +110,11 @@
             btnResetGame.addEventListener('click', function () {
                 initGame();
             });
+
+            //Retourne un entier compris entre min (inclus) et max (exclus)
+            function randomNumber(min, max) {
+                return min + Math.floor(Math.random() * max);
+            }
 
         </script>
 
