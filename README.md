@@ -9,7 +9,7 @@ Ce dépôt contient tout le code source Javascript (et HTML) du module *Dévelop
   - [Démos](#démos)
   - [Module 02 - Premiers pas avec Javascript](#module-02---premiers-pas-avec-javascript)
   - [Module 03 - Les objets Javascript](#module-03---les-objets-javascript)
-  - [Module 04 - Pages web dynamiques : manipuler le DOM avec Javascript](#module-04---pages-web-dynamiques--manipuler-le-dom-avec-javascript)
+  - [Module 04 - Pages web interactives : manipuler le DOM avec Javascript](#module-04---pages-web-interactives--manipuler-le-dom-avec-javascript)
   - [En cas d'oubli ou d'erreur](#en-cas-doubli-ou-derreur)
   - [Références](#références)
     - [Documentation officielle](#documentation-officielle)
@@ -67,7 +67,7 @@ Toutes les mises à jour (nouvelles démos, corrections, exercices, etc.) seront
 - [Accéder aux exercices](./exercices/module-03/module-03-exercices.md)
 - [Accéder à la correction des exercices](./exercices/module-03/corrections/)
 
-## Module 04 - Pages web dynamiques : manipuler le DOM avec Javascript
+## Module 04 - Pages web interactives : manipuler le DOM avec Javascript
 
 - [Accéder aux exercices](./exercices/module-04/module-04-exercices.md)
 - [Accéder à la correction des exercices](./exercices/module-04/corrections/)
