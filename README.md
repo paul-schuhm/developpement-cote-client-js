@@ -10,6 +10,7 @@ Ce dépôt contient tout le code source Javascript (et HTML) du module *Dévelop
   - [Module 02 - Premiers pas avec Javascript](#module-02---premiers-pas-avec-javascript)
   - [Module 03 - Les objets Javascript](#module-03---les-objets-javascript)
   - [Module 04 - Pages web dynamiques](#module-04---pages-web-dynamiques)
+  - [En cas d'oubli ou d'erreur](#en-cas-doubli-ou-derreur)
   - [Références](#références)
     - [Documentation officielle](#documentation-officielle)
     - [Ouvrages](#ouvrages)
@@ -59,15 +60,23 @@ Toutes les mises à jour (nouvelles démos, corrections, exercices, etc.) seront
 ## Module 02 - Premiers pas avec Javascript
 
 - [Accéder aux exercices](./exercices/module-02-exercices.md)
-- [Accéder à la correction des exercices](./exercices/corrections/)
+- [Accéder à la correction des exercices](./exercices/module-02/corrections/)
 
 ## Module 03 - Les objets Javascript
 
+- [Accéder aux exercices](./exercices/module-03/module-03-exercices.md)
+- [Accéder à la correction des exercices](./exercices/module-03/corrections/)
+
 ## Module 04 - Pages web dynamiques
 
-- [Accéder à la correction des exercices](./exercices/module-04/)
+- [Accéder aux exercices](./exercices/module-04/module-04-exercices.md)
+- [Accéder à la correction des exercices](./exercices/module-04/corrections/)
 
 > Les propositions d'exercice sont présentes sur la dernière page du support de cours PDF du module 4.
+
+## En cas d'oubli ou d'erreur
+
+Si vous constatez un oubli (correction manquante) ou une erreur, merci de me contacter.
 
 ## Références
 
