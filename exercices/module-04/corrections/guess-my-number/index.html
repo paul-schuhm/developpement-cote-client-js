@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <main>
+
+            <header>
+                <h1>Guess my number</h1>
+            </header>
+
+            <section id="game">
+
+                <p>Vous devez trouver le nombre secret compris entre 0 et 100 (exclus) en un maximum de 5 essais. Le
+                    nombre minimum est 0, le nombre maximum est 99. </p>
+
+                <form action="">
+                    <label for="guess">
+                        Votre proposition :
+                        <input type="number" min="0" max="99" id="guess" value="50">
+                    </label>
+                    <input type="submit" value="Proposer" id="submit-guess">
+                    <!-- Le bouton pour recommencer une partie est masqué au départ-->
+                    <input type="button" value="Nouvelle partie" id="new-game" hidden>
+                </form>
+
+                <p id="clue"></p>
+
+
+            </section>
+
+        </main>
+
+
+
+        <script>
+
+            var numberToGuess;
+            const maxNumberOfTries = 5;
+
+            // Element qui référence le bouton de soumission du formulaire (proposition de nombre)
+            var btnSubmitGuess = document.getElementById('submit-guess');
+
+            var btnResetGame = document.getElementById('new-game');
+
+            var inputGuess = document.getElementById('guess');
+
+            //Element qui référence le paragraphe donnant un indice à l'utilisateur
+            var pClue = document.getElementById('clue');
+
+            var nbOfTries = 0;
+
+            //Définit l'état de l'interface au début d'une partie et reset l'état du jeu
+            function initGame() {
+                nbOfTries = 0;
+                numberToGuess = 50; //  randomNumber(0, 100);
+                btnResetGame.hidden = true;
+                btnSubmitGuess.disabled = false;
+                inputGuess.disabled = false;
+            }
+
+            //Définit l'état de l'interface à la fin d'une partie
+            function endGame() {
+                //La partie est finie, on désactive le bouton de soumission
+                btnSubmitGuess.disabled = true;
+                inputGuess.disabled = true;
+                //Affiche le bouton pour recommencer une partie
+                btnResetGame.hidden = false;
+            }
+
+            //On initialise le jeu
+            initGame();
+
+            //Retourne un entier compris entre min (inclus) et max (exclus)
+            function randomNumber(min, max) {
+                return min + Math.floor(Math.random() * max);
+            }
+
+            btnSubmitGuess.addEventListener('click', function (event) {
+
+                //On empêche de soumettre le formulaire (émission d'une requête HTTP vers un serveur web)
+                event.preventDefault();
+
+                //Incrémente le nombre d'essais
+                nbOfTries++;
+
+                //Récupère le nombre tenté par l'utilisateur
+                const guess = inputGuess.value;
+
+                if (guess == numberToGuess) {
+
+                    pClue.innerText = `Bravo, le nombre à trouver était bien ${numberToGuess}. Vous avez trouvé en ${nbOfTries} essai(s) ! Il vous restait ${maxNumberOfTries - nbOfTries} tentatives.`;
+
+                    endGame();
+
+                } else if (guess < numberToGuess) {
+                    pClue.innerText = "Plus grand !";
+                } else {
+                    pClue.innerText = "Plus petit !";
+                }
+            });
+
+            btnResetGame.addEventListener('click', function () {
+                initGame();
+            });
+
+        </script>
+
+
+
+    </body>
+
+</html>
