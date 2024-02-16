@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Correction de notes</title>
+        <!-- Lien vers la feuille de style-->
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <!-- Lien vers la favicon-->
+        <link rel="shortcut icon" href="./assets/img/favicon-16x16.png" type="image/x-icon">
+    </head>
+
+    <body>
+
+        <h1>Détails des notes</h1>
+
+
+        <section>
+
+            <h2>Spécifications</h2>
+
+            <p>
+                La page web doit permettre de créer une liste d'étudiant·es, chaque étudiant·e étant défini·e par un
+                nom,
+                prénom et une note. La page web doit permettre d'ajouter un étudiant·e à la liste au besoin. Elle doit
+                proposer un
+                moyen de calculer la moyenne et la médiane des notes qui seront affichées sur la page.
+            </p>
+
+
+            <h2>Guide :</h2>
+
+            <p>Vous êtes libre d'implémenter et de designer cette page web comme vous le désirez tant qu'elle répond aux
+                spécifications demandées</p>
+
+            <ol>
+                <li>Créer une structure HTML capable d'accueillir une liste : soit un <a
+                        href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/table">un tableau</a> soit une <a
+                        href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/ul">liste non ordonnée</a> </li>
+                <li>Initialiser une structure vide</li>
+                <li>En Javascript, créer <em>une fonction constructeur</em> pour pouvoir générer des objets de type
+                    <code>Student</code>
+                </li>
+                <li>Créer un formulaire pour pouvoir ajouter un·e étudiant·e à la liste. Le formulaire doit proposer les
+                    inputs nécessaires pour fournir les données attendues pour chaque étudiant·e</li>
+                <li>
+                    Ajouter un <em>écouteur d'évènements</em> sur le bouton pour soumettre le formulaire. Annuler la
+                    soumission du formulaire (ce qui provoquerait l'envoi d'une requête HTTP) avec l'instruction
+                    <code>event.preventDefault()</code> directement depuis votre fonction déclenchée au click du bouton
+                    de soumission du formulaire.
+                </li>
+                <li>
+                    Créer l'élément HTML adapté (une ligne pour un tableau, un item de liste pour une liste non
+                    ordonnée) et y renseigner les informations issues du formulaire.
+                </li>
+                <li>
+                    Ajouter cet élément HTML à la structure qui liste les étudiant·es.
+                </li>
+            </ol>
+
+        </section>
+
+        <h2>Liste des étudiant·es</h2>
+
+        <section>
+            <h2>Ajouter un·e étudiant·e</h2>
+            <form action="">
+                <label for="first-name">Prénom :</label>
+                <input type="text" name="" id="first-name">
+                <label for="last-name">Nom :</label>
+                <input type="text" name="" id="last-name">
+                <label for="grade">Note</label>
+                <input type="number" id="grade" min="0" max="21" value="0">
+                <input type="submit" value="Ajouter" id="btn-add-student">
+            </form>
+
+        </section>
+
+        <ul id="students">
+
+        </ul>
+
+        <input type="button" value="Obtenir les statistiques" id="btn-statistics">
+
+        <table id="statistics">
+            <caption>Résumé</caption>
+            <thead>
+                <tr>
+                    <th scope="col">
+                        Moyenne
+                    </th>
+                    <th>
+                        Médiane
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td id="mean-grade"></td>
+                    <td id="mediane-grade"></td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <script src="./assets/js/index.js">
+
+        </script>
+
+    </body>
+
+</html>

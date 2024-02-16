@@ -1,0 +1,10 @@
+li span {
+    color : blue;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 2px;
+}
+
+li{
+    margin-bottom: 8px;
+}

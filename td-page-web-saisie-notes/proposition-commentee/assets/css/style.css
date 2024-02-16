@@ -1,0 +1,8 @@
+span[id^="grade"]{
+    color:blue;
+    font-weight: bold;
+}
+
+table#statistics{
+    display: none;
+}
