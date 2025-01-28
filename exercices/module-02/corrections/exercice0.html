@@ -10,7 +10,7 @@
 <style>
 
     html{
-        width: 80%;
+        width: 60%;
         margin: auto;
     }
     table {
@@ -60,7 +60,7 @@
     }
 
     td:last-of-type{
-        width: 150px;
+        width: 200px;
     }
 
     code{
@@ -119,6 +119,7 @@
                 <td>(a) > (b -1)</td>
                 <td>false</td>
                 <td>Boolean</td>
+                <td>L'application d'un opérateur relationnel (<code><,<=, >, >=, ==, ===, !=, !==</code>) est <strong>toujours évaluée à un booléan</strong></td>
             </tr>
             <tr>
                 <td>b < c < a</td>
@@ -127,6 +128,150 @@
                 <td>true</td>
                 <td>Boolean</td>
                 <td><code>(b < c)</code>est évaluée à <code>false</code>. Lors de l'évaluation de <code>(false < 1)</code>, <code>false</code> est convertie en valeur numérique <code>0</code>. <code>0 < 1</code> est donc évaluée à <code>true</code> </td>
+            </tr>
+            <tr>
+                <td>b > a < c</td>
+                <td>Oui</td>
+                <td>((b > a) < c)</td>
+                <td>false</td>
+                <td>Boolean</td>
+                <td><code>false</code> est converti en valeur numérique 0</td>
+            </tr>
+            <tr>
+                <td>b / 2 * 5</td>
+                <td>Oui</td>
+                <td>(b / 2) * 5</td>
+                <td>5</td>
+                <td>Number</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>a + 2 * 5 + b / 2 * 5</td>
+                <td>Oui</td>
+                <td>(a + (2 * 5)) + ((b / 2) * 5)</td>
+                <td>16</td>
+                <td>Number</td>
+                <td>Comme en mathématiques, les opérateurs de multiplication et de division (ainsi que module) ont la précédence sur les opérateurs d'addition et de soustraction</td>
+            </tr>
+            <tr>
+                <td>true && true</td>
+                <td>Oui</td>
+                <td>true && true</td>
+                <td>true</td>
+                <td>Boolean</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>true && false</td>
+                <td>Oui</td>
+                <td>true && false</td>
+                <td>false</td>
+                <td>Boolean</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>true || false</td>
+                <td>Oui</td>
+                <td>true || false</td>
+                <td>true</td>
+                <td>Boolean</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>false || false</td>
+                <td>Oui</td>
+                <td>false || false</td>
+                <td>false</td>
+                <td>Boolean</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>5 * 2 && a = 2</td>
+                <td><strong>Non</strong></td>
+                <td>((5 * 2) && a) = 2</td>
+                <td></td>
+                <td></td>
+                <td><code>((5 * 2) && a)</code>n'est pas une <em>lvalue</em>, on ne peut pas assigner de valeur à cette expression</td>
+            </tr>
+            <tr>
+                <td>6 * 7 > 6 * 7 + 1</td>
+                <td>Oui</td>
+                <td>(6 * 7) > ((6 * 7) + 1)</td>
+                <td>false</td>
+                <td>Boolean</td>
+                <td>Les opérateurs mathématiques <strong>ont toujours</strong> la précédence sur les opérateurs relationnels. Cela permet d'écrire des expressions plus intuitives</td>
+            </tr>
+            <tr>
+                <td>a++ >= b</td>
+                <td>Oui</td>
+                <td>(a++) >= b</td>
+                <td>false</td>
+                <td>Boolean</td>
+                <td>L'opérateur de <em>post</em>incrémentation (<code>++a</code>) agit de la façon suivante : <em>d'abord</em>la valeur <code>a</code> est évaluée (1), puis elle est incrémentée de 1</td>
+            </tr>
+            <tr>
+                <td>++c === a--</td>
+                <td>Oui</td>
+                <td>(++c) === (a--)</td>
+                <td>true</td>
+                <td>Boolean</td>
+                <td>L'opérateur de <em>pré</em>incrémentation (<code>++c</code>) agit de la façon suivante : <em>d'abord</em> la valeur <code>c</code> est incrémentée de 1, puis elle est évaluée. On rappelle que <code>a</code> vaut 2 ici, à cause de l'instruction précédente</td>
+            </tr>
+            <tr>
+                <td>true && true || 5 > 1</td>
+                <td>Oui</td>
+                <td>(true && true) || (5 > 1)</td>
+                <td>true</td>
+                <td>Boolean</td>
+                <td>Les opérateurs logiques (&& et ||) <strong>ont toujours</strong> une précédence plus faible que les opérateurs relationnels</td>
+            </tr>
+            <tr>
+                <td>a * b == 2</td>
+                <td>Oui</td>
+                <td>(a * b) == 2</td>
+                <td>true</td>
+                <td>Boolean</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>a * b = 2</td>
+                <td><strong>Non</strong></td>
+                <td>(a * b) = 2</td>
+                <td></td>
+                <td></td>
+                <td><code>a * b</code> n'est pas une <em>lvalue</em> !</td>
+            </tr>
+            <tr>
+                <td>'5' == 2 + 3;</td>
+                <td>Oui</td>
+                <td>'5' == (2 + 3);</td>
+                <td>true</td>
+                <td>Boolean</td>
+                <td>L'opérateur d'égalité <em>lâche</em> <code>==</code> ne compare que les valeurs des opérandes, pas les types. Ici '5' est convertie en valeur numérique 5</td>
+            </tr>
+            <tr>
+                <td>'5' === 2 + 3;</td>
+                <td>Oui</td>
+                <td>'5' == (2 + 3);</td>
+                <td>true</td>
+                <td>Boolean</td>
+                <td>L'opérateur d'égalité <em>stricte</em> <code>===</code> retourne vrai si les valeurs <strong>et</strong> les types des opérandes sont égaux</td>
+            </tr>
+            <tr>
+                <td>a++ == a</td>
+                <td>Oui</td>
+                <td>(a++) == a</td>
+                <td>false</td>
+                <td>Boolean</td>
+                <td>Les opérateurs unaires (à une opérande) ont toujours la priorité sur les opérateurs binaires (deux opérandes). Ce sera toujours faux car l'expression <code>a++</code> est 1) évaluée à la valeur actuelle de a 2) incrémente la valeur de a de 1. L'opérande de droite est alors incrémentée de 1, et sera toujours différente</td>
+            </tr>
+            <tr>
+                <td>++a == a </td>
+                <td>Oui</td>
+                <td>(++a) == a</td>
+                <td>true</td>
+                <td>Boolean</td>
+                <td>Ce sera toujours vrai car <code>++a</code> 1) incrémente la valeur de a de 1 2) est évaluée à la nouvelle valeur de a, comme l'opérande de droite</td>
             </tr>
         </tbody>
     </table>
