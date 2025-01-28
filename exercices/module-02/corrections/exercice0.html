@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 0</title>
+</head>
+
+<style>
+    table {
+        border-collapse: collapse;
+        border: 2px solid rgb(140 140 140);
+        font-family: sans-serif;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+
+    caption {
+        caption-side: bottom;
+        padding: 10px;
+        font-weight: bold;
+    }
+
+    thead,
+    tfoot {
+        background-color: rgb(228 240 245);
+    }
+
+    th,
+    td {
+        border: 1px solid rgb(160 160 160);
+        padding: 8px 10px;
+        text-align: left;
+    }
+
+
+    tbody>tr:nth-of-type(even) {
+        background-color: rgb(237 238 242);
+    }
+
+    th {
+        text-align: right;
+    }
+
+    tfoot td {
+        font-weight: bold;
+    }
+
+    td:first-of-type{
+        min-width: 150px;
+    }
+    tr th{
+        text-align: left;
+    }
+
+    td:last-of-type{
+        width: 150px;
+    }
+
+    code{
+        color:rgb(247, 0, 255);
+    }
+</style>
+
+<body>
+
+    <h1>Correction - Exercice 0 : Expressions primitives et opérateurs</h1>
+
+    <p>Inspecter la <em>console</em> (Inspecter, Dev Tools) pour voir l'évaluation des expressions en pratique par le
+        moteur de JavaScript.</p>
+
+    <p>Valeurs initiales des variables:</p>
+
+    <code>
+        let a = 1;
+        let b = 2;
+        let c = 0;
+    </code>
+
+    <table>
+        <caption>
+            Résultats pour chaque expression
+        </caption>
+        <thead>
+            <tr>
+                <th scope="col">Expression</th>
+                <th scope="col">Est valide ?</th>
+                <th scope="col">Ordre d'évaluation</th>
+                <th scope="col">Valeur</th>
+                <th scope="col">Type</th>
+                <th scope="col">Remarque</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>a/b</td>
+                <td>Oui</td>
+                <td>(a)/(b)</td>
+                <td>0.5</td>
+                <td>Number</td>
+                <td>Il n'existe qu'un type Number en JavaScript, pour les nombres entiers et flottans.</td>
+            </tr>
+            <tr>
+                <td>5 * 3 / 5 * 2</td>
+                <td>Oui</td>
+                <td>(((5 * 3) / 5) * 2)</td>
+                <td>6</td>
+                <td>Number</td>
+            </tr>
+            <tr>
+                <td>a > b - 1</td>
+                <td>Oui</td>
+                <td>(a) > (b -1)</td>
+                <td>false</td>
+                <td>Boolean</td>
+            </tr>
+            <tr>
+                <td>b < c < a</td>
+                <td>Oui</td>
+                <td>((b < c) < a)</td>
+                <td>true</td>
+                <td>Boolean</td>
+                <td><code>(b < c)</code>est évaluée à <code>false</code>. Lors de l'évaluation de <code>(false < 1)</code>, <code>false</code> est convertie en valeur numérique <code>0</code>. <code>0 < 1</code> est donc évaluée à <code>true</code> </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <h2>Liens utiles</h2>
+
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Data_structures">Types et structures de données JavaScript</a>, site officiel MDN
+        </li>
+        <li>
+            <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Operator_precedence">Précédence des opérateurs</a>, site officiel MDN. Récapitulatif sur la précédence et l'associativité des opérateurs. <em>La majorité des langages utilisent les mêmes règles</em>
+        </li>
+    </ul>
+
+
+
+    <script>
+
+        let a = 1;
+        let b = 2;
+        let c = 0;
+
+        console.log(5 * 3 / 5 * 2);
+        console.log(a > b - 1);
+        console.log(b < c < a);
+        console.log(b > a < c);
+        console.log(b / 2 * 5);
+        console.log(a + 2 * 5 + b / 2 * 5);
+        console.log(true && true);
+        console.log(true && false);
+        console.log(true || false);
+        console.log(false || false);
+        console.log('5 * 2 && a = 2 est invalide, car 5 * 2 && a n\' est pas une lvalue');
+        // console.log(5 * 2 && a = 2);
+        console.log(6 * 7 > 6 * 7 + 1);
+        console.log(a++ >= b);
+        console.log(++c === a--);
+        console.log(true && true || 5 > 1);
+        console.log(a * b == 2);
+        //Invalide (a * b) n'est pas une 'lvalue'
+        console.log('a * b = 2 est invalide, car a * b n\' est pas une lvalue');
+    </script>
+</body>
+
+</html>
