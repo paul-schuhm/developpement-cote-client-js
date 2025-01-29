@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+
+    <!-- Commentaire HTML -->
+
+    <h1>Démos sur les structures de contrôle</h1>
+
+    <script>
+
+        //Dans du JavaScript
+
+        //Un commentaire sur une ligne
+
+        /**
+         * Un commentaire sur plusieurs
+         * lignes.
+         */
+
+
+        //Boucles
+
+        {
+            //Bloc d'instructions vide
+        }
+
+        //While
+        console.log('Boucle while')
+        let i = 0;
+        while (i < 10) {
+            console.log("i=", i);
+            i++;
+        }
+
+        //Do..while {}
+        console.log('Boucle do..while')
+        //Bloc d'instructions est toujours exécuté au moins une fois !
+        i = 100;
+        do {
+            //Bloc d'instructions.
+            i++;
+            console.log(i);
+        } while (i < 10);
+
+        //For
+        console.log('Boucle for')
+        for (i = 0; i < 10; i++) {
+            console.log(i);
+        }
+
+        //Strictement équivalent à la boucle for
+        i = 0;
+        while (i < 10) {
+            console.log(i);
+            i++;
+        }
+
+        //Parcours de tableau avec une boucle for
+        let students = ['sacha', 'soa', 'alizée', 'ioulian', 'matthew'];
+        //Afficher plusieurs valeurs en une seule instruction: console.log(valeur, valeur, valeur, etc.)
+        //Nombre d'étudiant(e)s
+        console.log("Nombre d'étudiant(e)s : ", students.length);
+        for (i = 0; i < students.length; i++) {
+            //Accéder à l'élement i du tableau 'students'. Chaque élément d'un tableau
+            //a un index (position), qui commence par 0.
+            //Par ex, students[0] => 'sacha'
+            console.log(students[i]);
+            //Contexte web : Pour chaque prénom, créer un item de list <li> avec un h2, une image, un lien, etc.
+        }
+
+        //Démo sur les sauts conditionnels : if/else/else if, switch
+        console.log('If/else/else if');
+
+        //Les étudiant(e)s peuvent-iels s'installer dans la salle 25 ?
+
+        //La capacité d'accueil de la salle 25
+        const roomCapacity = 21;
+
+        //Cas il/else
+        if (students.length > roomCapacity) {
+            console.log("Il faut s'installer dans une autre salle");
+        } else {
+            console.log("Vous pouvez vous installer dans la salle 25 ! ")
+        }
+
+        //Cas if/else if/else
+        // if (students.length > roomCapacity) {
+        //     console.log("Il faut s'installer dans une autre salle");
+        // }
+        // else if (students.length === roomCapacity) {
+        //     console.log("Vous avez de la chance, il y a tout juste de la place pour tout le monde !")
+        // } else {
+        //     console.log("Vous pouvez vous installer dans la salle 25 ! ")
+        // }
+
+        //Switch (a venir)
+        //Exercice : 
+
+        //1. Ecrire une boucle qui affiche 0, 1, 2, 3, 4 sur la console avec une boucle for.
+
+        console.log('Exercice : question 1');
+        for (i = 0; i < 5; i++) {
+            console.log(i);
+        }
+
+        //2. En utilisant l'instruction 'continue', 
+        //   faire en sorte que le 3 ne soit pas affiché sur la console, soit: 0, 1, 2, 4.
+
+        console.log('Exercice : question 2')
+        for (i = 0; i < 5; i++) {
+            if (i === 3) {
+                //Met fin à l'itération courante (passer à l'itération suivante)
+                //Toutes les instructions placées apres le continue seront ignorées
+                continue;
+            }
+            console.log(i);
+        }
+
+
+        //3. Faire la même chose avec une boucle while
+
+        i = 0;
+        while (i < 5) {
+            if (i == 3) {
+                //Attention, il faut penser à incrémenter avant de passer
+                //a l'itération suivante sinon on se retrouve dans une boucle infinie
+                //car i vaut toujours 3 !
+                i++;
+                continue;
+                //Toute instruction apres le continue ne sera pas executée
+            }
+            console.log(i);
+            i++;
+        }
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
