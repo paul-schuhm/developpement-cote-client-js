@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess my number</title>
+</head>
+
+<body>
+
+    <h1>Guess my number</h1>
+
+    <script>
+        //Code Javascript
+
+        //Tirer un nombre aléatoire entre 0 et 100 [x]
+        //Tant que la personne qui joue ne trouve pas le nombre [x]
+        // - Fournir un nombre, faire un pari [x]
+        // - Si nombre > nombre à trouver, afficher "Trop grand"
+        // - Si nombre < nombre à trouver, afficher "Trop petit"
+        // - Si c'est le même indiquer que la personne a gagné
+        // Terminer le jeu.
+
+        //Variables (Etats du jeu)
+
+        //Valeur tirée au hasard au début du jeu
+        const number_to_guess = Math.floor(Math.random() * 100);
+        //Nombre proposé par la personne qui joue
+        let guess;
+
+        //Tant que...
+        do{
+
+            //Demander un nombre a la personne qui joue 
+            //A admettre (recuperer un input utilisateur)
+            //Retourne l'input de l'utilisateur
+            guess = prompt("Proposer un nombre: ");
+
+            if(guess > number_to_guess){
+                //Afficher un message sur une modale
+                alert("Trop grand !")
+            }else if( guess < number_to_guess){
+                alert("Trop petit !");
+            }else{
+                //Concaténation de chaine de caractères : number_to_guess est transformée
+                //en string et concacaténée avec la chaine qui précède +
+                alert("Bravo ! Le nombre à deviner était bien " + number_to_guess)
+            }
+
+        }while(number_to_guess != guess);
+
+        //Le jeu est terminé
+
+
+    </script>
+</body>
+
+</html>
