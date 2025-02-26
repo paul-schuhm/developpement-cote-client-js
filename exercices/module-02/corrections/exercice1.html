@@ -7,58 +7,68 @@
         <title>Document</title>
     </head>
 
-
     <body>
 
-        <h1>Exercice 1</h1>
+        <h1>Exercice 3</h1>
+
 
         <script>
 
-            //1.
-            const tvaPourcent = 0.2;
-            //2.
-            let montantEnEurosHT;
-            //3. Une variable qui contient une valeur booléenne répond à une question
-            //Bonne pratique de la faire commencer par "is..."
-            let tvaEstApplicable;
+            // 1.
+            for (let i = 0; i < 11; i++) {
+                console.log(i);
+            }
 
-            function calculeMontantTCC(montantEnEurosHT, tvaEstApplicable) {
-                if (tvaEstApplicable) {
-                    return montantEnEurosHT * (1 + tvaPourcent);
+            let j = 0;
+            while (j < 11) {
+                console.log(j);
+                j++;
+            }
+
+            // 2. 
+
+            for (let i = 0; i < 16; i = i + 2) {
+                console.log(i);
+            }
+
+            j = 0;
+            while (j < 16) {
+                console.log(j);
+                j = j + 2;
+            }
+
+            // 3.
+
+            for (let i = 1; i <= 256; i = i * 2) {
+                console.log(i);
+            }
+
+            j = 1;
+            while (j <= 256) {
+                console.log(j);
+                j = j * 2;
+            }
+
+            // 4.
+            for (let i = 0; i < 8; i = i + 1) {
+                if (i % 2 == 0) {
+                    console.log(1);
                 } else {
-                    return montantEnEurosHT;
+                    console.log(-1);
                 }
             }
 
-            //1ere facture :
-
-            montantEnEurosHT = 150.50;
-            tvaEstApplicable = false;
-            let montantTTCFacture1 = calculeMontantTCC(montantEnEurosHT, tvaEstApplicable);
-
-            //Retourne une représentation de la facture en chaîne de caractères
-            //formatée comme demandé (cf énoncé)
-            function formateFacture(numeroFacture, montantEnEurosHT, montantEnEurosTTC) {
-
-                //Corps de la fonction : ici on mettre les instructions
-                // let ligne1 = 'Facture ' + numeroFacture + ' '
-                //Une autre méthode : littéraux (avec les 'back ticks')
-                let ligne1 = `Facture ${numeroFacture}`;
-                let ligne2 = `Montant (HT): ${montantEnEurosHT} EUROS`;
-                let ligne3 = `Montant (TTC) : ${montantEnEurosTTC} EUROS`;
-
-                return `${ligne1}\n${ligne2}\n${ligne3}`;
+            j = 0;
+            while (j < 8) {
+                if (j % 2 == 0) {
+                    console.log(1);
+                } else {
+                    console.log(-1);
+                }
+                j++;
             }
 
-            //Appel de la fonction :
-            console.log(formateFacture(1, montantEnEurosHT, montantTTCFacture1));
 
-            //Facture 2
-            montantEnEurosHT = 1500.50;
-            tvaEstApplicable = true;
-            let montantTTCFacture2 = calculeMontantTCC(montantEnEurosHT, tvaEstApplicable);
-
-            console.log(formateFacture(2, montantEnEurosHT, montantTTCFacture1));
 
         </script>
 
