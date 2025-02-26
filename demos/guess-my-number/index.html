@@ -16,10 +16,10 @@
 
         //Tirer un nombre aléatoire entre 0 et 100 [x]
         //Tant que la personne qui joue ne trouve pas le nombre [x]
-        // - Fournir un nombre, faire un pari [x]
+        // - La personne qui joue propose un nombre [x]
         // - Si nombre > nombre à trouver, afficher "Trop grand"
         // - Si nombre < nombre à trouver, afficher "Trop petit"
-        // - Si c'est le même indiquer que la personne a gagné
+        // - Si nombre == nombre, indiquer que la personne a gagné
         // Terminer le jeu.
 
         //Variables (Etats du jeu)
@@ -28,6 +28,10 @@
         const number_to_guess = Math.floor(Math.random() * 100);
         //Nombre proposé par la personne qui joue
         let guess;
+        //Nombre d'essais
+        let nb_of_tries = 0;
+        //Nombre max d'essais
+        // let max = 3;
 
         //Tant que...
         do{
@@ -36,22 +40,23 @@
             //A admettre (recuperer un input utilisateur)
             //Retourne l'input de l'utilisateur
             guess = prompt("Proposer un nombre: ");
+            nb_of_tries++;
 
             if(guess > number_to_guess){
                 //Afficher un message sur une modale
                 alert("Trop grand !")
             }else if( guess < number_to_guess){
-                alert("Trop petit !");
+                alert("Trop petitnb_of_tries !");
             }else{
                 //Concaténation de chaine de caractères : number_to_guess est transformée
                 //en string et concacaténée avec la chaine qui précède +
-                alert("Bravo ! Le nombre à deviner était bien " + number_to_guess)
+                alert("Bravo ! Le nombre à deviner était bien " + number_to_guess + ". Vous avez trouvé en " + nb_of_tries + " tentatives.")
             }
 
         }while(number_to_guess != guess);
 
         //Le jeu est terminé
-
+        alert("Le jeu est terminé, merci d'avoir joué");
 
     </script>
 </body>
