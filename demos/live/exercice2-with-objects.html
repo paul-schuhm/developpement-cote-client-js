@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <h1>Exercice 2, avec objets et méthode constructeur</h1>
+
+        <ul id="invoices">
+
+        </ul>
+
+        <script>
+
+            //Correction Exercice 2 + introduction aux objets et fonctions constructeurs et à la manipulation du DOM
+
+            //Remarque : normalement on écrira le code en anglais
+
+            const tvaPercent = 20; // Pour appliquer prix * (1 + tvaPercent/100)
+            //ou tvaCoeff = 0.2 // Pour appliquer prix * (1 + tvaCoeff)
+            let amountEuros;
+            let applyTva;
+
+            function amountWithTaxes(amount, applyTva) {
+                return applyTva ? amount * (1 + tvaPercent / 100) : amount;
+            }
+
+            function formatInvoice(number, amount, amountTaxesIncluded) {
+                let line1 = `Facture ${number} :\n`
+                let line2 = `Montant (HT)  : ${amount.toFixed(2)} EUR\n`;
+                let line3 = `Montant (TTC) : ${amountTaxesIncluded.toFixed(2)} EUR\n`;
+                return line1 + line2 + line3;
+            }
+
+            let invoices = [];
+
+            // console.log(amountWithTaxes(100, true));
+            // console.log(amountWithTaxes(100, false));
+
+            console.log(formatInvoice(1, 150.5, amountWithTaxes(150.5)));
+
+
+            //Aller plus loin (Monter sur les objets et les fonctions constructeurs)
+
+            //On voudrait manipuler une facture comme une valeur dans notre programme, ce serait utile
+            //Plutot que de manipuler des valeurs scalaires séparément (numero, montant, tva)
+            //On veut manipuler la collection de ces données et lui donner un nom.
+            //On a déjà vu les tableaux, mais cela ne semble pas adéquate, c'est juste une collection avec
+            //des clés numériques
+
+            //Créer un objet (collection de prop ou clé/valeurs)
+            let invoice = {
+                number: 1,
+                amount: 150.5,
+                applyTva: false
+            };
+
+            //Accéder à l'objet
+            console.log(invoice.number)
+            console.log(invoice.amount)
+            console.log(invoice["amount"])
+            console.log(invoice.applyTva)
+
+            //Parcourir l'objet (clefs, valeurs)
+            for (const key in invoice) {
+                console.log(key, invoice[key])
+            }
+
+            console.log(formatInvoice(invoice.number, invoice.amount, amountWithTaxes(invoice.amount, invoice.applyTva)));
+
+
+            //Créer des méthodes (fonctions comme propriétés qui peuvent accéder aux autres propriétés et valeurs de l'objet)
+
+            invoice = {
+                number: 1,
+                amount: 150.5,
+                applyTva: false,
+                amountAllTaxes: function () {
+                    return this.applyTva ? this.amount * (1 + tvaPercent / 100) : this.amount;
+                },
+                //Syntaxe alternative
+                formatAsText() {
+                    let line1 = `Facture ${this.number} :\n`
+                    let line2 = `Montant (HT)  : ${this.amount.toFixed(2)} EUR\n`;
+                    let line3 = `Montant (TTC) : ${this.amountAllTaxes().toFixed(2)} EUR\n`;
+                    return line1 + line2 + line3;
+                }
+            };
+
+            console.log(invoice.formatAsText())
+
+            //On va pas redéfinir à la main une structure facture à chaque fois qu'on en a besoin. Qu'est ce qu'on peut faire pour réutiliser ce code ? Créer une fonction ! Ca tombe bien on va utiliser une fonction pour créer des objets appelée fonction constructeur (primitive du langage) !
+
+            function Invoice(number, amount, applyTva) {
+
+                //this est une référence spéciale, elle fait référence à l'objet en construction
+
+                //Propriétés
+                this.number = number;
+                this.amount = amount;
+                this.applyTva = applyTva;
+                this.amountAllTaxes = function () {
+                    return this.applyTva ? this.amount * (1 + tvaPercent / 100) : this.amount;
+                };
+
+                //Méthodes: fonctions qui ont accès aux propriétés de l'objet et les manipulent
+                this.formatAsText = function () {
+                    let line1 = `Facture ${this.number} :\n`
+                    let line2 = `Montant (HT)  : ${this.amount.toFixed(2)} EUR\n`;
+                    let line3 = `Montant (TTC) : ${this.amountAllTaxes().toFixed(2)} EUR\n`;
+                    return line1 + line2 + line3;
+                }
+            }
+
+            //Appel à la méthode constructeur avec l'opérateur new
+            let invoice2 = new Invoice(2, 1500, true)
+            console.log(invoice2.formatAsText())
+
+            //Afficher la facture sur la page (Commencer à manipuler le DOM)
+
+            //Recupérer une référence vers la liste (objet)
+            const ulInvoices = document.getElementById("invoices");
+
+            //Créer et ajouter un element au DOM
+            const liInvoice = document.createElement("li")
+            liInvoice.innerText = invoice2.formatAsText();
+            ulInvoices.append(liInvoice)
+
+        </script>
+    </body>
+
+</html>
