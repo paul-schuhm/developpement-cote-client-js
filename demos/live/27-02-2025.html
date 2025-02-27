@@ -73,8 +73,9 @@
         console.log(invoiceAsText)
 
 
-        //Se créer un modèle de facture (objet JS)
-        //Collection de clé/valeurs
+        //Se créer un modèle de facture (objet JavaScript)
+        //Un objet est une collection de clés/valeurs
+        //Crée manuellement
         let invoice1 = {
             number: 1,
             amountEuros: 150.5,
@@ -96,9 +97,49 @@
 
         //Parcourir toutes les clés de l'objet invoice1 (for .. in)
         for (let key in invoice1) {
-            console.log(invoice.key) //Ne marchera pas sur toutes les clefs (si la clef contient des espaces)
-            console.log(key, invoice[key]) //Marchera toujours
+            console.log(invoice1.key) //Ne marchera pas sur toutes les clefs (si la clef contient des espaces)
+            console.log(key, invoice1[key]) //Marchera toujours
         }
+
+        console.log('------Fonction constructeur------')
+
+        //Une fonction constructeur (permettre de créer des objets 'invoice')
+        function Invoice(number, amountEuros, applyTva) {
+            //Créer l'objet en utilisant la variable 'this' fournie par JS
+            //Admettre : this fait référence à l'objet en cours de construction
+
+            //Enregistre la clé 'number' et lui assigne la valeur number passée en argument
+            this.number = number;
+            this.amountEuros = amountEuros;
+            this.applyTva = applyTva;
+
+
+            //Enregistrer une fonction sous la clé
+            //Méthode : fonction attachée à un objet. L'intérêt ? 
+            // - Rassembler les données et les traitements
+            this.computeAmountWithTaxes = function () {
+                //La fonction peut accéder directement aux données enregistrées sur l'objet
+                //Pour cela utiliser this.key
+                if (this.applyTva) {
+                    return this.amountEuros * (1 + tvaPercent / 100);
+                }else{
+                    return this.amountEuros;
+                }
+            }
+
+            //Pas besoin de return (new et this s'en chargent)
+        }
+
+        //Pour instancier un objet à partir d'une fonction constructeur, il faut utiliser l'opérateur 'new'
+        let invoice = new Invoice(1, 150.5, false);
+
+        //Refaire le calcul et l'affichage
+        //Appel à la fonction globale et passage des données en argument
+        // amountWithTaxes = computeAmountWithTaxes(invoice.amountEuros, invoice.applyTva);
+        //Appel à la méthode enregistrée sur l'objet (acces direct aux données)
+        amountWithTaxes = invoice.computeAmountWithTaxes();
+        formatted = formatAsText(invoice.number, invoice.amountEuros, amountWithTaxes);
+        console.log(formatted);
 
     </script>
 </body>
