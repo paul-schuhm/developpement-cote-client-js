@@ -79,11 +79,7 @@
             number: 1,
             amountEuros: 150.5,
             applyTva: false,
-            "clef composee de plusieurs mots": "Lorem ipsum"
         };
-
-        // invoice1.clef composee de plusieurs mots ????
-        // invoice1["clef composee de plusieurs mots"] OK
 
         //Accéder aux propriétés d'un objet
         console.log(invoice1.number);
@@ -92,10 +88,16 @@
         console.log(invoice1.amountEuros);
         console.log(invoice1.applyTva);
 
+        let someObject = {
+            "clef composee de plusieurs mots": "Lorem ipsum"
+        }
+        // console.log(someObject.clef composee de plusieurs mots) ERREUR, impossible
+        // console.log(someObject["clef composee de plusieurs mots"]) OK
+
         //Parcourir toutes les clés de l'objet invoice1 (for .. in)
         for (let key in invoice1) {
-            console.log(invoice.key)
-            console.log(key, invoice[key])
+            console.log(invoice.key) //Ne marchera pas sur toutes les clefs (si la clef contient des espaces)
+            console.log(key, invoice[key]) //Marchera toujours
         }
 
     </script>
