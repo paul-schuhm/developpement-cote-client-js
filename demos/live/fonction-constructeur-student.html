@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //Créer un étudiant à la main
+        // let jane = {
+        //     firstName: "Jane",
+        //     lastName: "Doe",
+        //     grades: [18, 12, 15]
+        // };
+
+        // let john = {
+        //     firstName: "John",
+        //     lastName: "Doe",
+        //     grades: [10, 11, 14]
+        // };
+
+        //Fonction constructeur
+        function Student(firstName, lastName, grades){
+            //Créer clée firstName avec la valeur de la variable firstName
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.grades = grades;
+
+            //Méthode : fonction enregistrée sur un objet
+            //Retourne la moyenne des notes de l'étudiant/e
+            this.mean = function(){
+                //Calculer la moyenne
+                //Parcourir le tableau
+                //Moyenne = Somme des notes / nombre total de notes
+
+                let sum = 0;
+
+                for(let i = 0 ; i < this.grades.length; i++){
+                    sum = sum + this.grades[i];
+                }
+                //sum est complète (addition de toutes les notes)
+                //Moyenne = sum / nb d'éléments
+
+                return sum / this.grades.length;                
+            }
+        }
+
+        //Appel de la fonction "constructeur"
+        //new NomFonction(donnée, donnée) retourne un objet initialisé avec les valeurs
+        let jane = new Student("Jane", "Doe", [12, 14, 18]);
+        //Afficher moyenne de Jane
+        console.log("Moyenne de Jane :", jane.mean())
+        let john = new Student("John", "Doe", [9, 11, 13]);
+        console.log("Moyenne de John :", john.mean())
+
+        //Dernière question : créer une méthode pour calculer la moyenne des notes
+
+    </script>
+</body>
+
+</html>
