@@ -43,7 +43,7 @@
 
         //Retourne une représentation de la facture sous forme de chaine
         //de caracteres formatée;
-        function formatAsText(numero, amount, amountWithTaxes){
+        function formatAsText(numero, amount, amountWithTaxes) {
 
             //Concaténation avec l'opérateur +
             //Interpolation avec les back ticks (altGr+7)
@@ -71,6 +71,32 @@
         amountWithTaxes = computeAmountWithTaxes(1500, true);
         invoiceAsText = formatAsText(2, 1500, amountWithTaxes)
         console.log(invoiceAsText)
+
+
+        //Se créer un modèle de facture (objet JS)
+        //Collection de clé/valeurs
+        let invoice1 = {
+            number: 1,
+            amountEuros: 150.5,
+            applyTva: false,
+            "clef composee de plusieurs mots": "Lorem ipsum"
+        };
+
+        // invoice1.clef composee de plusieurs mots ????
+        // invoice1["clef composee de plusieurs mots"] OK
+
+        //Accéder aux propriétés d'un objet
+        console.log(invoice1.number);
+        //Syntaxe alternative
+        console.log(invoice1['number']);
+        console.log(invoice1.amountEuros);
+        console.log(invoice1.applyTva);
+
+        //Parcourir toutes les clés de l'objet invoice1 (for .. in)
+        for (let key in invoice1) {
+            console.log(invoice.key)
+            console.log(key, invoice[key])
+        }
 
     </script>
 </body>
