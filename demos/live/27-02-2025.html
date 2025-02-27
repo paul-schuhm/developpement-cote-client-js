@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //Soit j'écris le code directement ici.
+        //Soit j'externalise le code dans un fichier "index.js" que j'indique en attribut src de script
+
+
+        //1.
+        const tvaPercent = 20;
+
+        //2. 
+        let amountEuros;
+
+        //3.
+        let applyTva;
+
+        //Retourne le montant toutes taxes comprises (ttc)
+        function computeAmountWithTaxes(amount, applyTva) {
+
+            //Nom des arguments : variables locales manipulables dans
+            //le corps de la fonction
+
+            //Opérateur ternaire
+            // return applyTva ? amount * (1 + tvaPercent / 100) : amount;
+
+            //Corps de la fonction (implémentation)
+            if (applyTva) {
+                return amount * (1 + tvaPercent / 100);
+            } else {
+                return amount;
+            }
+        }
+
+
+        //Retourne une représentation de la facture sous forme de chaine
+        //de caracteres formatée;
+        function formatAsText(numero, amount, amountWithTaxes){
+
+            //Concaténation avec l'opérateur +
+            //Interpolation avec les back ticks (altGr+7)
+            // let line1 = "Facture " + numero + " :";
+            // Le caractère spécial "\n" de saut de ligne
+            let line1 = `Facture ${numero} :\n`;
+            let line2 = `Montant (HT): ${amount} EUR\n`;
+            let line3 = `Montant (TTC): ${amountWithTaxes} EUR\n`;
+
+            //Concatène (mettre bout à bout) toutes les lignes
+            return line1 + line2 + line3;
+        }
+
+        //Appel de la fonction, retourne un résultat
+
+        //Facture 1
+        //Calcul montant TTC
+        let amountWithTaxes = computeAmountWithTaxes(150.5, false);
+        //Formate la facture
+        let invoiceAsText = formatAsText(1, 150.5, amountWithTaxes);
+        //Sortie dans la console
+        console.log(invoiceAsText);
+
+        //Facture 2
+        amountWithTaxes = computeAmountWithTaxes(1500, true);
+        invoiceAsText = formatAsText(2, 1500, amountWithTaxes)
+        console.log(invoiceAsText)
+
+    </script>
+</body>
+
+</html>
