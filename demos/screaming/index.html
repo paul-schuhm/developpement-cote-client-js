@@ -10,6 +10,7 @@
             html {
                 font-size: 48px;
             }
+            
         </style>
     </head>
 
@@ -21,7 +22,7 @@
 
             function scream() {
                 let screamText = document.querySelector('.scream');
-                screamText.textContent = screamText.textContent + 'H' + '\n';
+                screamText.textContent = screamText.textContent + ' H';
             }
 
             setInterval(scream, 30);
