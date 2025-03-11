@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Formulaire et inputs</h1>
+
+    <p id="message"></p>
+
+    <form action="">
+
+        <div>
+            <label for="first_name">Prénom</label>
+            <input type="text" name="first_name" id="first_name">
+        </div>
+
+        <div>
+            <label for="age">Âge</label>
+            <input type="number" name="age" id="age">
+        </div>
+
+        <div>
+            <label for="spe">Spécialité</label>
+            <select name="spe" id="spe">
+                <option value="dev_web">Développement web</option>
+                <option value="ui_ux">UI/UX</option>
+                <option value="marketing">Marketing</option>
+            </select>
+        </div>
+
+        <div>
+            <fieldset>
+                <legend>Mes cours préférés</legend>
+
+                <div>
+                    <input type="checkbox" id="js" name="fav" checked />
+                    <label for="js">Développement Front</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="communication" name="fav" />
+                    <label for="communication">Communication</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="maquettage" name="fav" />
+                    <label for="maquettage">Maquettage</label>
+                </div>
+            </fieldset>
+        </div>
+
+        <input type="submit" value="Valider">
+    </form>
+
+
+    <script src="script.js">
+    </script>
+</body>
+
+</html>
