@@ -17,36 +17,61 @@
             span {
                 font-weight: bold;
             }
+
+            section#section-1 {
+                background-color: rgb(205, 205, 205);
+                padding: 5px;
+                margin: 5px;
+            }
+
+            section#section-2 {
+                background-color: rgb(232, 232, 232);
+                padding: 5px;
+                margin: 5px;
+            }
         </style>
     </head>
 
     <body>
 
         <h1>Manipuler le DOM</h1>
-        <h2 class="size600">Un sous titre</h2>
+        <h2 class="size600">Titre de niveau 2</h2>
+
+
+        <p>Illustration de la manipulation du DOM (insert, suppression et déplacement), des écouteurs d'évènement, des
+            fonctions setTimeout et setInterval</p>
+
         <p>Lorem ipsum</p>
         <p id="foo">Un autre paragraphe avec un id</p>
         <ul>
-            <li>A</li>
-            <li>B</li>
-            <li>C</li>
+            <li>Item A</li>
+            <li>Item B</li>
+            <li>Item C</li>
         </ul>
 
-        <h2 class="size600">Un deuxième sous titre</h2>
+
+
+        <section id="section-1">
+            <h2 class="size600">Section 1</h2>
+        </section>
+
 
         <button id="hide-lastp">Masquer le dernier paragraphe</button>
-        <button id="change-bg">Change la couleur de l'arrière-plan</button>
+        <button id="change-bg">Changer la couleur de l'arrière-plan de la section</button>
         <label for="range-fontsize">Ajuster la taille de la police</label>
         <input type="range" name="range-fontsize" id="range-fontsize">
 
 
-        <section>
 
-            <p>Un autre paragraphe</p>
-
+        <section id="section-2">
+            <h2>Section 2</h2>
+            <p>Foo</p>
+            <p>Bar</p>
         </section>
 
         <script>
+
+            //Sélectionner des éléments
 
             //Sélectionne le premier élément h2 qui a la classe size600
             var h2 = document.querySelector('h2.size600');
@@ -56,10 +81,6 @@
 
             //Récupérer tous les h2 avec la classe size600
             var h2s = document.querySelectorAll('h2.size600');
-            console.log(h2s)
-
-            //Récupérer un paragraphe p avec l'id foo
-            console.log(document.querySelector('p#foo'));
 
             //Sélectionne tous les éléments paragraphes (balise p) du document
             var paragraphs = document.getElementsByTagName('p');
@@ -69,37 +90,73 @@
             }
 
             //Crée un nouvel élément
+
             var newParagraph = document.createElement('p');
             //Lui mettre un id bar
             newParagraph.setAttribute('id', 'bar');
             //Modifier son contenu textuel
-            newParagraph.innerText = "Ce paragraphe a entièrement été généré en JS";
+            newParagraph.innerText = "Paragraphe ajouté avec appendChild()";
             //Lui mettre une classe 'error'
             newParagraph.setAttribute('class', 'error');
             console.log(newParagraph)
-            //Insérer le paragraphe dans le document, dans la première section trouvée
+
+            //Modifier la structure document : ajout, suppression, déplacement
+
+            //Ajout d'un élément enfant à la fin avec appendChild()
+            //@link https://developer.mozilla.org/fr/docs/Web/API/Node/appendChild
             var section = document.querySelector('section');
             section.appendChild(newParagraph)
 
+            //Ajout d'un élément enfant au début avec prepend()
+            //@link https://developer.mozilla.org/fr/docs/Web/API/Element/prepend
+            newParagraph = document.createElement('p');
+            newParagraph.innerText = "Paragraphe ajouté avec prepend()"
+            section.prepend(newParagraph);
+
+            //Ajout d'un élément enfant avant un autre
+            //@link https://developer.mozilla.org/fr/docs/Web/API/Node/insertBefore
+            let anotherParagraph = document.createElement('p');
+            anotherParagraph.innerHTML = 'Paragraphe ajouté avec <a href="https://developer.mozilla.org/fr/docs/Web/API/Node/insertBefore">insertBefore()</a>';
+            section.insertBefore(anotherParagraph, newParagraph);
+
+            //Déplacer un élément enfant : pour déplacer un élément déjà présent sur l'arbre
+            //il suffit de "l'ajouter" ailleurs
+            anotherParagraph.innerHTML += " puis déplacé avec appendChild()";
+            section.appendChild(anotherParagraph)
+
+            //Ajouter a une position précise avec insertAdjacentElement()
+            //@link https://developer.mozilla.org/fr/docs/Web/API/Element/insertAdjacentElement
+            let yetAnotherParagraph = document.createElement('p');
+            yetAnotherParagraph.textContent = "Paragraphe ajouté avec insertAdjacentElement()"
+            anotherParagraph.insertAdjacentElement('beforebegin', yetAnotherParagraph)
+
+            //Modifier le document en modifiant des éléments présents
+
             //Sélectionner le dernier paragraphe de la section
-            var firstParagraph = document.querySelector('section p:first-child')
-            var lastParagraph = document.querySelector('section p:last-child')
+            var firstParagraph = document.querySelector('section#section-2 p')
+            var lastParagraph = document.querySelector('section#section-2 p:last-child')
+
             //Modifier le contenu texte
             firstParagraph.innerText = "Nouveau <span>contenu HTML</span> généré en Javascript";
             //Modifier le contenu HTML
             lastParagraph.innerHTML = "Nouveau <span>contenu HTML</span> généré en Javascript";
-            //Modifier une propriété de style
+
+            //Modifier une propriété de style (inline CSS)
             lastParagraph.style.fontSize = "4em";
             lastParagraph.style.background = "blue";
+            lastParagraph.style.color = "white";
             lastParagraph.style.padding = "12px 24px";
             lastParagraph.style.letterSpacing = "-2px";
             lastParagraph.style.wordSpacing = "42px";
+
+
+            //Réagir aux évènements
 
             //Enregistrer un écouteur d'évènement sur le click du bouton 'hide-lastp'
             const btnHideLastP = document.querySelector('button#hide-lastp');
 
             btnHideLastP.addEventListener('click', function (event) {
-                let lastParagraph = document.querySelector('section p:last-child')
+                let lastParagraph = document.querySelector('section#section-2 p:last-child')
                 //Si le paragraphe est caché l'afficher, et inversement
                 lastParagraph.hidden = lastParagraph.hidden ? false : true;
                 //Ajuster le texte du bouton en fonction de l'état du paragraphe (caché ou non)
@@ -112,7 +169,7 @@
             // Modifie la couleur de l'arrière plan du document (couleur RGB aléatoire)
             function changeBackgroundColor() {
                 let randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
-                document.body.style.backgroundColor = randomColor;
+                document.querySelector('section#section-2').style.backgroundColor = randomColor;
             }
 
             //On enregistre le gestionnaire d'évènement sur l'élément btn
@@ -130,12 +187,17 @@
             // Ajouter une classe
             firstParagraph.classList.add('success');
 
+
+            //Appliquer un délai, executer une fonction de manière répétée
+
             setTimeout(function () {
                 console.log("Code exécuté avec une seconde (au moins) de retard.")
             }, 1000);
             setInterval(function () {
                 console.log("Code exécuté toutes les secondes")
             }, 1000);
+
+            //Tracker le mouvement du curseur
 
             document.addEventListener('mousemove', function (event) {
                 var mouseX = event.clientX;
