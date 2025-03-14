@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h1>Démo : formulaire conditionnel et validation custom</h1>
+
+    <form action="" method="POST">
+
+        <!-- Ici on a un champ avec validation custom (code_inscription doit valoir 12345) et les select doivent changer (rendu conditionnel en fonction de la spécialité choisie)-->
+
+        <div>
+            <p id="code_error" class="error"></p>
+            <label for="code_inscription">Code d'inscription</label>
+            <input type="text" id="code_inscription">
+        </div>
+
+        <div>
+            <label for="spe">Spécialité choisie :</label>
+            <select name="spe" id="spe">
+                <option selected value="dev">Développement logiciel</option>
+                <option value="design">Design</option>
+            </select>
+        </div>
+
+        <div id="input_spe_dev">
+            <label for="option_dev">Cours au choix</label>
+            <select name="option_dev" id="option_dev">
+                <option value="web">Développement web</option>
+                <option value="mobile">Développement mobile</option>
+            </select>
+        </div>
+
+
+        <div id="input_spe_design" class="hidden">
+            <label for="option_first_year">Cours au choix</label>
+            <select name="option_design" id="option_design">
+                <option name="motion" id="motion">Motion Design</option>
+                <option name="typo" id="typo">Typographie avancée</option>
+            </select>
+        </div>
+
+        <input type="submit" value="Envoyer">
+
+
+    </form>
+
+
+    <script>
+
+        let form = document.querySelector('form');
+        let selectSpe = document.getElementById("spe");
+        let selectOptionDev = document.getElementById('input_spe_dev')
+        let selectOptionDesign = document.getElementById('input_spe_design')
+
+        selectSpe.addEventListener('change', function (event) {
+            selectOptionDesign.classList.toggle('hidden');
+            selectOptionDev.classList.toggle('hidden');
+        });
+
+        form.addEventListener('submit', function (event) {
+
+            //Codes acceptés
+            let validCodes = ["12345", "891011"];
+
+            let codeInput = document.getElementById("code_inscription").value.trim();
+
+            let found = validCodes.find(function (validCode) {
+                return validCode === codeInput;
+            });
+
+            if (!found) {
+                document.getElementById("code_error").textContent = "Le code est invalide";
+                event.preventDefault();
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
