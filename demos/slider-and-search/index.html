@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider JS avec Barre de Recherche</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        header { position: relative; width: 100%; overflow: hidden; }
+        .slider {
+            display: flex;
+            width: 300%;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            width: 100vw;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: white;
+        }
+        .slide:nth-child(1) { background: red; }
+        .slide:nth-child(2) { background: blue; }
+        .slide:nth-child(3) { background: green; }
+        .buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        button {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .search-container {
+            position: relative;
+            margin: 20px;
+            max-width: 300px;
+        }
+        .search-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .search-results {
+            position: absolute;
+            width: 100%;
+            background: white;
+            border: 1px solid #ccc;
+            display: none;
+        }
+        .search-results div {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .search-results div:hover {
+            background: #f0f0f0;
+        }
+
+        h1{
+            margin: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide">Slide 1</div>
+                <div class="slide">Slide 2</div>
+                <div class="slide">Slide 3</div>
+            </div>
+        </div>
+
+        <h1>Slider JS et barre de recherche</h1>
+        <div class="buttons">
+            <button id="prev">&#10094;</button>
+            <button id="next">&#10095;</button>
+        </div>
+        
+      
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="search" class="search-input" placeholder="Rechercher...">
+        <div id="results" class="search-results"></div>
+    </div>
+    
+    <script>
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slide');
+        let index = 0;
+        
+        document.getElementById('next').addEventListener('click', () => {
+            index = (index + 1) % slides.length;
+            updateSlider();
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            index = (index - 1 + slides.length) % slides.length;
+            updateSlider();
+        });
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${index * 100}vw)`;
+        }
+
+        // Barre de recherche
+        const terms = ["apple", "banana", "cherry", "date", "fig", "grape", "kiwi", "lemon", "mango", "orange"];
+        const searchInput = document.getElementById('search');
+        const resultsContainer = document.getElementById('results');
+
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+            resultsContainer.innerHTML = '';
+            if (query) {
+                const filteredTerms = terms.filter(term => term.includes(query));
+                if (filteredTerms.length > 0) {
+                    resultsContainer.style.display = 'block';
+                    filteredTerms.forEach(term => {
+                        const div = document.createElement('div');
+                        div.textContent = term;
+                        div.addEventListener('click', () => {
+                            searchInput.value = term;
+                            resultsContainer.style.display = 'none';
+                        });
+                        resultsContainer.appendChild(div);
+                    });
+                } else {
+                    resultsContainer.style.display = 'none';
+                }
+            } else {
+                resultsContainer.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
