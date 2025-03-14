@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulation du DOM</title>
+    <style>
+        ul { list-style-type: none; padding: 0; }
+        li { display: flex; align-items: center; gap: 10px; padding: 5px; margin: 5px; background: #f0f0f0; }
+        .completed { text-decoration: line-through; color: gray; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <input type="text" id="new-task" placeholder="Ajouter une tâche">
+    <select id="priority">
+        <option value="1">Priorité 1</option>
+        <option value="2">Priorité 2</option>
+        <option value="3">Priorité 3</option>
+    </select>
+    <button id="add-task">Ajouter</button>
+    <button id="clear-tasks">Tout effacer</button>
+    <button id="toggle-completed">Masquer les tâches complétées</button>
+    <button id="sort-tasks">Trier par priorité</button>
+    <ul id="task-list"></ul>
+    <script src="script.js"></script>
+</body>
+</html>
