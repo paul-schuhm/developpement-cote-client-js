@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+            .hidden {
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Guess my number</h1>
+
+        <div id="first_screen">
+            <div>
+                <label for="pseudo">Pseudo :</label>
+                <input type="text" id="pseudo" value="Jane">
+            </div>
+            <div>
+                <button id="btn_new_game">Nouvelle partie</button>
+            </div>
+        </div>
+
+        <div id="second_screen" class="hidden">
+            <p>Proposer un nombre</p>
+            <p id="hint"></p>
+            <input type="number" name="" id="guess" value="1">
+            <button id="btn_guess">Valider</button>
+        </div>
+
+        <div id="third_screen" class="hidden">
+            <p id="game_over_message">Bravo !</p>
+            <button id="btn_another_game">Nouvelle partie</button>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+
+</html>
