@@ -1,55 +1,72 @@
-const btnNewGame = document.getElementById("btn_new_game");
-const screenNewGame = document.getElementById("first_screen");
-const screenGame = document.getElementById("second_screen");
-const screenGameOver = document.getElementById("third_screen");
-const btnGuess = document.getElementById("btn_guess");
-const btnStartNewGame = document.getElementById("btn_another_game");
-
-const game = {
-  nbOfTries: 0,
-  numberToGuess: 1 // randomNumber(),
+//Etat du jeu
+const gameState = {
+    numberToGuess: randomNumber(),
+    nbOfTries: 0
 };
 
-function randomNumber(){
-    return Math.ceil(Math.random() * 100);
+
+//Retourne un entier aléatoire compris entre 0 et 100 (exclus)
+function randomNumber() {
+    return Math.floor(Math.random() * 100);
 }
 
-function showGameScreen(){
-    screenGame.classList.toggle('hidden', false);
-}
-function hideGameOverScreen(){
-    screenGameOver.classList.toggle('hidden', true);
-}
+//Récupérer les écrans
+const screenNewGame = document.getElementById('screen_new_game');
+const screenGame = document.getElementById('screen_game');
+const screenGameOver = document.getElementById('screen_gameover');
 
-function resetGameState() {
-  //Reset game state
-  game.numberToGuess = 1; //randomNumber();
-  game.nbOfTries = 0;
-}
+//Boutons
+const btnNewGame = document.getElementById('btn_new_game');
+const btnGuess = document.getElementById('btn_guess');
+const btnReplay = document.getElementById('btn_replay');
 
-btnStartNewGame.addEventListener("click", function (event) {
-  resetGameState();
-  hideGameOverScreen();
-  showGameScreen();
+
+
+//Nouvelle partie
+btnNewGame.addEventListener('click', function (event) {
+    //Cacher l 'ecran screenNewGame
+    screenNewGame.classList.toggle('hidden');
+    //Afficher l'ecran screenGame
+    screenGame.classList.toggle('hidden');
 });
 
-btnNewGame.addEventListener("click", function (event) {
-  screenNewGame.classList.toggle("hidden");
-  screenGame.classList.toggle("hidden");
-  btnGuess.addEventListener("click", function (event) {
-    game.nbOfTries++;
-    const guess = document.getElementById("guess").value.trim();
-    if (guess == game.numberToGuess) {
-      screenGame.classList.toggle("hidden");
-      screenGameOver.classList.toggle("hidden");
-      const pseudo = document.getElementById('pseudo').value.trim(); 
-      const gameOverMessage = document.getElementById("game_over_message");
-      gameOverMessage.textContent = `Bravo ${pseudo}, le nombre à trouver était bien ${game.numberToGuess}. Vous l'avez trouvé en ${game.nbOfTries} tentative(s) !`;
+//Proposer un nombre
+btnGuess.addEventListener('click', function (event) {
+
+    //Incrémenter le nombre de tentatives
+    gameState.nbOfTries++;
+
+    const guess = document.getElementById('guess').value;
+    //Comparer avec le nombre à trouver
+
+    //Gagné, passer sur la page de fin de jeu
+    if (guess == gameState.numberToGuess) {
+        screenGame.classList.toggle('hidden');
+        screenGameOver.classList.toggle('hidden');
+
+        //Il me faut le pseudo, le nomnbre de tentatives et le nombre à trouver
+        const pseudo = document.getElementById('pseudo').value.trim();
+        const pMessage = document.querySelector('div#screen_gameover p');
+
+        pMessage.textContent = `Bravo ${pseudo} ! Le nombre à trouver était bien ${gameState.numberToGuess}. Vous avez trouvé en ${gameState.nbOfTries} tentatives.`
     } else {
-      const hint = document.getElementById("hint");
-      const message =
-        guess < game.numberToGuess ? "Plus grand ! " : "Plus petit !";
-      hint.textContent = message;
+        //Perdu
+        const pHint = document.getElementById('hint');
+        //Afficher un indice
+        pHint.textContent = guess < gameState.numberToGuess ? "Le nombre à devenir est plus grand !" : "Le nombre à devenir est plus petit !";
     }
-  });
+
+});
+
+//Rejouer une partie
+btnReplay.addEventListener('click', function (event) {
+
+    //Afficher ecran game, masquer ecran gameover
+    screenGameOver.classList.toggle('hidden');
+    screenGame.classList.toggle('hidden');
+
+    //Réinitialise le jeu : tirer un nouveau nombre, réinitialiser le nombre de tentatives à 0
+    gameState.numberToGuess = randomNumber();
+    gameState.nbOfTries = 0;
+
 });
