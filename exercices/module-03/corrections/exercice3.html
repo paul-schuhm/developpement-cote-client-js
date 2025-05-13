@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <h1>Module 03 - Exercice 3</h1>
+        <p>Voir le contenu de la balise <code>script</code>.</p>
+
+        <script>
+
+            function startsWithLetterAtoD(str) {
+                const firstChar = str.charAt(0).toLowerCase();
+                return firstChar >= 'a' && firstChar <= 'd';
+            }
+
+            function startsWithLetterAtoDRegex(str) {
+                return /^[a-dA-D]/.test(str);
+            }
+
+            console.log(startsWithLetterAtoD('Allo ?'));
+            console.log(startsWithLetterAtoD('Dormez-vous ?'));
+            console.log(startsWithLetterAtoD('dormez-vous ?'));
+            console.log(startsWithLetterAtoD('allo ?'));
+            console.log(startsWithLetterAtoD('Vas, cours, vole et nous venge'));
+
+            console.log(startsWithLetterAtoDRegex('Allo ?'));
+            console.log(startsWithLetterAtoDRegex('Dormez-vous ?'));
+            console.log(startsWithLetterAtoDRegex('dormez-vous ?'));
+            console.log(startsWithLetterAtoDRegex('allo ?'));
+            console.log(startsWithLetterAtoDRegex('Vas, cours, vole et nous venge'));
+
+
+            function containsOneAtSymbol(str) {
+                //Si pas de '@', indexOf retourne -1. Si index du premier est égal à l'index du dernier, il n'y en a qu'un seul
+                return str.indexOf('@') !== -1 && str.indexOf('@') === str.lastIndexOf('@');
+            }
+
+
+            function containsOneAtSymbolWithSplit(str) {
+                //La méthode split('@') divise la chaîne en un tableau à chaque occurrence du caractère '@'.
+                //S'il n'y a qu'un @ la chaine sera divisé en 2 éléments.
+                return str.split('@').length === 2;
+            }
+
+            console.log('foo@bar.com', containsOneAtSymbol('foo@bar.com'));
+            console.log('foo@bar.com', containsOneAtSymbolWithSplit('foo@bar.com'));
+
+            console.log('foo@b@r.com', containsOneAtSymbol('foo@b@r.com'));
+            console.log('foo@b@r.com', containsOneAtSymbolWithSplit('foo@b@r.com'));
+
+
+            function containsDigit(str) {
+                for (let i = 0; i < str.length; i++) {
+                    if (!isNaN(parseInt(str[i]))) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            console.log('hell0', containsDigit('hell0'));
+            console.log('hello', containsDigit('hello'));
+
+            function replaceDigitsWithAsterisk(str) {
+                let result = '';
+                for (let i = 0; i < str.length; i++) {
+                    if (!isNaN(parseInt(str[i]))) {
+                        result += '*';
+                    } else {
+                        result += str[i];
+                    }
+                }
+                return result;
+            }
+
+            function replaceDigitsWithAsteriskRegex(str) {
+                return str.replace(/\d/g, '*');
+            }
+
+            console.log('b0nj0ur, c0mment allez-v0us ?', replaceDigitsWithAsterisk('b0nj0ur, c0mment allez-v0us ?'));
+            console.log('b0nj0ur, c0mment allez-v0us ?', replaceDigitsWithAsteriskRegex('b0nj0ur, c0mment allez-v0us ?'));
+
+            let string = '13,14,15,16,17,18,19,20';
+            let numbers2 = string.split(',').map(function (n) { return Number(n) });
+            //Ou directement :
+            //let numbers = string.split(',').map(Number);
+            console.log(numbers)
+
+        </script>
+    </body>
+
+</html>

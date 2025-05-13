@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <h1>Module 03 - Exercice 2</h1>
+        <p>Voir le contenu de la balise <code>script</code>.</p>
+
+
+        <script>
+
+            const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            console.log(numbers)
+            numbers.push(11, 12);
+            console.log(numbers)
+            //Sans modifier l'original, on le clone
+            const clone = Array.from(numbers);
+            clone.reverse();
+            console.log(clone);
+            const sub = numbers.filter(n => n >= 5 && n <= 8);
+            console.log(sub);
+            console.log(numbers.includes(3));
+        </script>
+    </body>
+
+</html>

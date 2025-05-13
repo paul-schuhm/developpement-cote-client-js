@@ -9,32 +9,112 @@
 
     <body>
 
+        <h1>Module 03 - Exercice 1 : Gestion des étudiant·es</h1>
+        <p>Voir le contenu de la balise <code>script</code>.</p>
         <script>
 
-            let student1 = {
-                name: 'Jane',
-                age: 25,
-                courses: ['Arts', 'Sociology', 'Computer Science']
-            };
+            // let student1 = {
+            //     name: 'Jane',
+            //     age: 25,
+            //     courses: ['Arts', 'Sociology', 'Computer Science']
+            // };
 
-            let student2 = {
-                name: 'John',
-                age: 23,
-                courses: ['Biology', 'Computer Science']
-            };
+            // let student2 = {
+            //     name: 'John',
+            //     age: 23,
+            //     courses: ['Biology', 'Computer Science']
+            // };
 
             //Généraliser la construction d'objets de type 'Student'
-            function Student(name, age, courses) {
+            function Student(name, year, month, day, courses) {
                 this.name = name;
-                this.age = age;
+                this.birthDate = new Date(year, month, day)
                 this.courses = courses;
+                this.addCourses = function (courses) {
+                    //Et si le cours est déjà renseigné ? Tip : voir l'objet de type Set (Ensemble : valeur unique par définition)
+                    this.courses = this.courses.concat(courses);
+                    //Avec le spread operator ...
+                    // this.courses = [...this.courses, ...courses];
+                }
+                this.addCourse = function (course) {
+                    this.courses.push(course);
+                }
+                this.age = function () {
+                    const now = new Date();
+                    const diff = now.getFullYear() - this.birthDate.getFullYear();
+                    const m = now.getMonth() - this.birthDate.getMonth();
+                    const d = now.getDate() - this.birthDate.getDate();
+                    return m < 0 || (m === 0 && d < 0) ? diff - 1 : diff;
+                }
             }
 
-            let john = new Student('John', 23, ['Biology', 'Computer Science']);
-            let jane = new Student('Jane', 25, ['Arts', 'Sociology', 'Computer Science']);
+            /**
+             * Retourne l'âge moyen des étudiant·es
+             */
+            function averageAge(...students) {
+                let average = 0;
+                for (let student of students) {
+                    average += student.age();
+                }
+                if (students.length !== 0)
+                    average /= students.length;
+                return average;
+            }
+
+            //Variation : Accepte soit un tableau, soit un nombre indéterminé d'arguments
+            function averageAge2(...students) {
+                students = Array.isArray(students[0]) ? students[0] : students;
+                let average = 0;
+                for (let student of students) {
+                    average += student.age();
+                }
+                if (students.length !== 0)
+                    average /= students.length;
+                return average;
+            }
+
+            /**
+             * Retourne la liste des cours en commun entre student1 et student2
+             */
+            function findCommonCourses(student1, student2) {
+                const common = [];
+                for (let course of student1.courses) {
+                    if (student2.courses.includes(course))
+                        common.push(course);
+                }
+                return common;
+            }
+
+            /**
+             * Trie sur place les étudiants du plus jeune au plus agé
+             */
+            function sortStudents(students) {
+                students.sort(function (s1, s2) {
+                    return s1.age() - s2.age();
+                });
+            }
+
+            let john = new Student('John', 1990, 6, 12, ['Biology', 'Computer Science']);
+            let jane = new Student('Jane', 1988, 12, 21, ['Arts']);
+            let larry = new Student('Larry', 1999, 5, 1, ['Arts']);
+
+            jane.addCourses(['Sociology', 'Computer Science']);
+            john.addCourse('Philosophy');
+
+            console.log(averageAge(john, jane));
+            console.log(averageAge2(john, jane));
+            console.log(averageAge2([john, jane]));
+
+            console.log(findCommonCourses(john, jane));
+
+            const students = [john, jane, larry];
+            const sorted = sortStudents(students);
+            console.log(students);
+
+
+
 
         </script>
-
     </body>
 
 </html>

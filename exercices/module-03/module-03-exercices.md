@@ -1,6 +1,6 @@
 # Exercices - Module 3 : Les objets Javascript
 
-B1 - Développement Front (Javascript)
+B1 - Développement Web Javascript
 
 Auteur : Paul Schuhmacher
 
@@ -12,7 +12,6 @@ Version : 1
   - [Exercice 3 : Manipuler les chaînes de caractères comme des objets](#exercice-3--manipuler-les-chaînes-de-caractères-comme-des-objets)
   - [Exercice 4 : Fonctions constructeur et formes géométriques](#exercice-4--fonctions-constructeur-et-formes-géométriques)
     - [Exemple d'utilisation](#exemple-dutilisation)
-
 
 <hr>
 
@@ -43,7 +42,7 @@ Courses : Computer Science - Biology
 6. Écrire une fonction `findCommonCourses(etudiant1, etudiant2)` qui prend deux objets étudiants en argument et retourne la liste des matières qu'ils ont en commun.
 7. **Créez une fonction constructeur** pour instancier des étudiant·es.
 8. Modifier la structure d'un étudiant en remplaçant la propriété `Age` par `BirthDate`. Instancier de nouveaux étudiant·es avec cette nouvelle structure. Utiliser l'objet intégré [Date](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Date) de Javascript pour générer des dates de naissance. Exemple d'usage : `let date = new Date(Year, Month, Day)`.
-9.  Ajouter une méthode `age()` à l'objet étudiant qui calcule et retourne son age (en années). *Tip: Si vous calculez la différence entre deux dates vous obtenez la durée écoulée en millisecondes. Pour obtenir la date courante, instancier un objet Date : `let now = new Date()`*. 
+9.  Bonus : Ajouter une méthode `age()` à l'objet étudiant qui calcule et retourne son âge (en années). 
 10. Écrire une fonction qui retourne la liste des étudiant·es, ordonné du plus jeune au plus agé·e.
 
 > [En savoir plus sur l'usage des dates en Javascript](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Date)
@@ -55,19 +54,20 @@ Courses : Computer Science - Biology
 3. Ajoutez les nombres 11 et 12 à la fin du tableau.
 4. Affichez à nouveau le tableau mis à jour dans la console.
 5. [Trouvez et utilisez une méthode de tableau](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array#M%C3%A9thodes) pour inverser l'ordre des éléments dans le tableau.
-6. Affichez le tableau inversé dans la console.
-7. Utilisez une méthode de tableau pour extraire et afficher les nombres entre 5 et 8 (inclus).
-8. Utilisez une méthode de tableau pour vérifier si le nombre 3 est présent dans le tableau. Affichez le résultat dans la console.
-9. Créez un nouveau tableau appelé `oddNumbers` contenant uniquement les nombres pairs du tableau `numbers`.
-10. Affichez le tableau `oddNumbers` dans la console.
-11. Trouvez une méthode pour transformer le tableau en chaîne de caractères, où chaque élément est séparé de l'autres par un slash (/).
+6. Affichez le tableau inversé dans la console. Que remarquez-vous ?
+7. Réaliser l'opération sans modifier le tableau original. Pour cela, réaliser un clone du tableau numbers au préalable avec la méthode `Array.from()`.
+8. Utilisez une méthode de tableau pour extraire et afficher les nombres entre 5 et 8 (inclus). Cette opération ne doit pas modifier le tableau original.
+9. Utilisez une méthode de tableau pour vérifier si le nombre 3 est présent dans le tableau. Affichez le résultat dans la console.
+10. Créez un nouveau tableau appelé `oddNumbers` contenant uniquement les nombres impairs du tableau `numbers`.
+11. Affichez le tableau `oddNumbers` dans la console.
+12. Trouvez une méthode pour transformer le tableau en chaîne de caractères, où chaque élément est séparé de l'autre par un slash (/).
 
 ## Exercice 3 : Manipuler les chaînes de caractères comme des objets
 
 1. Écrire une fonction qui permet de tester si une chaîne de caractère passée en paramètre commence par une lettre majuscule ou minuscule entre 'a' et 'd'.
-2. Écrire une fonction qui renvoie 'true' lorsque'une chaîne contient un seul caractère '@' sinon renvoie 'false'.
-3. Écrire une fonction qui renvoie 'true' lorsque'une chaîne contient au moins un chiffre sinon renvoie 'false'.
-4. Écrire une fonction qui remplace les chiffre par le caractère '*' .
+2. Écrire une fonction qui renvoie 'true' lorsqu'une chaîne contient un seul caractère '@' sinon renvoie 'false'.
+3. Écrire une fonction qui renvoie 'true' lorsqu'une chaîne contient au moins un chiffre, sinon renvoie 'false'.
+4. Écrire une fonction qui remplace les chiffres par le caractère '*' .
 5. [En vous aidant de la documentation](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String), **trouver une méthode** qui permet de transformer la chaîne `let string = '13,14,15,16,17,18,19,20';` en un tableau de **nombres**.
 
 > Source : www.exelib.net
