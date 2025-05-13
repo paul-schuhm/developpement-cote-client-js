@@ -1,44 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .screen{
+            border: 1px dashed black;
+            padding: 5px;
+        }
+    </style>
+</head>
 
-        <style>
-            .hidden {
-                display: none;
-            }
-        </style>
-    </head>
+<body>
 
-    <body>
-        <h1>Guess my number</h1>
+    <h1>Guess my number</h1>
 
-        <div id="first_screen">
-            <div>
-                <label for="pseudo">Pseudo :</label>
-                <input type="text" id="pseudo" value="Jane">
-            </div>
-            <div>
-                <button id="btn_new_game">Nouvelle partie</button>
-            </div>
-        </div>
+    <div id="screen_new_game" class="screen">
+        <label for="pseudo">Pseudo :</label>
+        <input type="text" name="pseudo" id="pseudo" placeholder="Jane">
+        <button id="btn_new_game">Nouvelle partie</button>
+    </div>
 
-        <div id="second_screen" class="hidden">
-            <p>Proposer un nombre</p>
-            <p id="hint"></p>
-            <input type="number" name="" id="guess" value="1">
-            <button id="btn_guess">Valider</button>
-        </div>
+    <div id="screen_game" class="screen hidden">
+        <p id="hint"></p>
+        <label for="">Proposer un nombre :</label>
+        <input type="number" name="guess" id="guess" value="1" min="0" max="99">
+        <button id="btn_guess">Proposer</button>
+    </div>
 
-        <div id="third_screen" class="hidden">
-            <p id="game_over_message">Bravo !</p>
-            <button id="btn_another_game">Nouvelle partie</button>
-        </div>
+    <div id="screen_gameover" class="screen hidden">
+        <p id="gameover_message">Bravo !</p>
+        <button id="btn_replay">Rejouer une partie</button>
+    </div>
 
-        <script src="script.js"></script>
-    </body>
+    <script src="script.js"></script>
+
+</body>
 
 </html>
