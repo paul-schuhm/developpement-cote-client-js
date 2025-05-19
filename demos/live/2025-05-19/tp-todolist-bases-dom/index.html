@@ -22,7 +22,7 @@
     <h2>A faire</h2>
 
     <div>
-        <input type="text" name="" id="task_label">
+        <input type="text" name="" id="task_label" value="Acheter du pain">
         <button id="add_task">Ajouter une tâche</button>
     </div>
 
@@ -65,6 +65,12 @@
             //Ajouter un bouton pour supprimer la tache
             const btnDelete = document.createElement('button');
             btnDelete.innerText = "Supprimer";
+            li.appendChild(btnDelete);
+
+            btnDelete.addEventListener('click', function(event){
+                //Supprimer la tache (noeud parent, le li)
+                this.parentElement.remove();
+            });
 
             return li;
         }
