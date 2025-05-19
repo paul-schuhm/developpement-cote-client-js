@@ -24,6 +24,7 @@
     <div>
         <input type="text" name="" id="task_label" value="Acheter du pain">
         <button id="add_task">Ajouter une tâche</button>
+        <button id="hide_tasks">Masquer/afficher les tâches faites</button>
     </div>
 
 
@@ -39,6 +40,9 @@
         let input = document.getElementById("task_label");
         //Récupère une référence vers un objet qui représente "le noeud" du bouton
         let btnAddTask = document.getElementById("add_task");
+        //Récupérer une réference vers le boutton pour afficher/masquer les taches réalisées
+        let btnHideTask = document.getElementById('hide_taks');
+
 
         /**
          * Retourne un élément HTML qui représente
