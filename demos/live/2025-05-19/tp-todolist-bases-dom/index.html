@@ -41,6 +41,9 @@
 
     <script>
 
+        //Identifiant unique d'une tache
+        let taskId = 0;
+
 
         // //1. Selectionner l'élément HTML
         // let checkbox = document.querySelector('input[type="checkbox"]#task-1');
@@ -56,16 +59,33 @@
          * Retourne un élément HTML qui représente
          * une tache (composant)
          */
-        function createTaskElement(){
-            console.log('Ajouter une tache');
+        function createTaskElement(taskLabel, taskId) {
+            const li = document.createElement('li');
+            const label = document.createElement('label');
+            const checkbox = document.createElement('input[type="checkbox"]');
+            li.appendChild(label);
+            li.appendChild(checkbox);
+
+            checkbox.setAttribute('id', taskId);
+            label.textContent = taskLabel;
+            label.setAttribute('for', taskId);
+
+            return li;
         }
 
 
         function actionAddTask() {
+
             //Récuperer la liste des tâches
             let tasks = document.getElementById("tasks");
-            //Ajouter la tache à la liste (noeud enfant du noeud liste des taches)
-            tasks.appendChild(task);
+            //Récupérer l'input texte
+            let input = document.getElementById("task_label");
+
+            //Créer un élément HTML représentant une tache
+            let task = createTaskElement(input.value, taskId);
+            //Incrémenter l'identifiant unique attribué à chaque tache
+            taskId++;
+
             //Réinitialiser l'input (vider la saisie)
             input.value = "";
         }
