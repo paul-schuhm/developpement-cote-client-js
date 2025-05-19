@@ -62,7 +62,9 @@
         function createTaskElement(taskLabel, taskId) {
             const li = document.createElement('li');
             const label = document.createElement('label');
-            const checkbox = document.createElement('input[type="checkbox"]');
+            //Créer un input de type checkbox (en 2 temps)
+            const checkbox = document.createElement('input');
+            checkbox.setAttribute('type','checkbox');
             li.appendChild(label);
             li.appendChild(checkbox);
 
