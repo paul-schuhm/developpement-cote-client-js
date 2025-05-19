@@ -28,14 +28,6 @@
 
 
     <ul id="tasks">
-        <li class="done">
-            <label for="task-1">Acheter du pain</label>
-            <input type="checkbox" name="" id="task-1" checked>
-        </li>
-        <li>
-            <label for="task-2">Déclarer ses impôts</label>
-            <input type="checkbox" name="" id="task-2">
-        </li>
     </ul>
 
 
@@ -43,17 +35,10 @@
 
         //Identifiant unique d'une tache
         let taskId = 0;
-
-
-        // //1. Selectionner l'élément HTML
-        // let checkbox = document.querySelector('input[type="checkbox"]#task-1');
-        // //2. Ajouter un écouteur d'évènement ('change')
-        // const li = document.querySelector('ul li:first-child');
-
-        // checkbox.addEventListener('change', function (event) {
-        //     li.classList.toggle('done')
-        // });
-
+        //Référence vers l'input texte qui donne le nom de la tache à ajouter
+        let input = document.getElementById("task_label");
+        //Récupère une référence vers un objet qui représente "le noeud" du bouton
+        let btnAddTask = document.getElementById("add_task");
 
         /**
          * Retourne un élément HTML qui représente
@@ -64,7 +49,7 @@
             const label = document.createElement('label');
             //Créer un input de type checkbox (en 2 temps)
             const checkbox = document.createElement('input');
-            checkbox.setAttribute('type','checkbox');
+            checkbox.setAttribute('type', 'checkbox');
             li.appendChild(label);
             li.appendChild(checkbox);
 
@@ -72,16 +57,23 @@
             label.textContent = taskLabel;
             label.setAttribute('for', taskId);
 
+            //Ajouter un écouteur d'évènement pour rayer la tache quand elle est faite
+            checkbox.addEventListener('change', function (event) {
+                li.classList.toggle('done')
+            });
+
             return li;
         }
 
 
         function actionAddTask() {
 
+            //Si l'input est vide, on n'ajoute pas de tache à la liste
+            if (!input.value)
+                return;
+
             //Récuperer la liste des tâches
             let tasks = document.getElementById("tasks");
-            //Récupérer l'input texte
-            let input = document.getElementById("task_label");
 
             //Créer un élément HTML représentant une tache
             let task = createTaskElement(input.value, taskId);
@@ -95,9 +87,6 @@
             input.value = "";
         }
 
-
-        //Récupère une référence vers un objet qui représente "le noeud" du bouton
-        let btnAddTask = document.getElementById("add_task");
         //Enregistrer un écouteur d'évènement (une fonction associée à un évènement)
         //Dès qu'il y aura un click sur le bouton, la fonction sera executée
         btnAddTask.addEventListener('click', actionAddTask);
