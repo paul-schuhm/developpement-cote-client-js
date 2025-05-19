@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM/Todo list</title>
+
+    <style>
+        .done {
+            text-decoration: line-through;
+            color: grey;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Manipulation du DOM (Todo list)</h1>
+
+
+    <h2>A faire</h2>
+
+    <div>
+        <input type="text" name="" id="task_label">
+        <button id="add_task">Ajouter une tâche</button>
+    </div>
+
+
+    <ul id="tasks">
+        <li class="done">
+            <label for="task-1">Acheter du pain</label>
+            <input type="checkbox" name="" id="task-1" checked>
+        </li>
+        <li>
+            <label for="task-2">Déclarer ses impôts</label>
+            <input type="checkbox" name="" id="task-2">
+        </li>
+    </ul>
+
+
+    <script>
+
+
+        //1. Selectionner l'élément HTML
+        let checkbox = document.querySelector('input[type="checkbox"]#task-1');
+        //2. Ajouter un écouteur d'évènement ('change')
+        const li = document.querySelector('ul li:first-child');
+
+        checkbox.addEventListener('change', function(event){
+                // console.log('Checkbox a changé !!')
+                //Ajouter/retirer la classe à la tache
+                li.classList.toggle('done')
+        });
+
+
+        //Récupère une référence vers un objet qui représente "le noeud" du bouton
+        let btnAddTask = document.getElementById("add_task");
+        //Enregistrer un écouteur d'évènement (une fonction associée à un évènement)
+        //Dès qu'il y aura un click sur le bouton, la fonction sera executée
+        btnAddTask.addEventListener('click', function (event) {
+            console.log('Ajouter une tache');
+            //Ajouter une tache à notre todolist
+            //Créer un élément
+            let task = document.createElement('li');
+            //Préparer la tâche (label, etc.)
+            
+            //Récupérer la saisie utilisateur (label de la tache)
+            const input = document.getElementById('task_label');
+            //Initialiser le label de la tache avec
+            task.innerText = input.value;
+            //Récuperer la liste des tâches
+            let tasks = document.getElementById("tasks");
+            //Ajouter la tache à la liste (noeud enfant du noeud liste des taches)
+            tasks.appendChild(task);
+            //Réinitialiser l'input (vider la saisie)
+            input.value = "";
+
+        });
+
+    </script>
+
+</body>
+
+</html>
