@@ -11,6 +11,10 @@
             text-decoration: line-through;
             color: grey;
         }
+
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 
@@ -41,7 +45,7 @@
         //Récupère une référence vers un objet qui représente "le noeud" du bouton
         let btnAddTask = document.getElementById("add_task");
         //Récupérer une réference vers le boutton pour afficher/masquer les taches réalisées
-        let btnHideTask = document.getElementById('hide_taks');
+        let btnHideTask = document.getElementById('hide_tasks');
 
 
         /**
@@ -71,7 +75,7 @@
             btnDelete.innerText = "Supprimer";
             li.appendChild(btnDelete);
 
-            btnDelete.addEventListener('click', function(event){
+            btnDelete.addEventListener('click', function (event) {
                 //Supprimer la tache (noeud parent, le li)
                 this.parentElement.remove();
             });
@@ -104,6 +108,16 @@
         //Enregistrer un écouteur d'évènement (une fonction associée à un évènement)
         //Dès qu'il y aura un click sur le bouton, la fonction sera executée
         btnAddTask.addEventListener('click', actionAddTask);
+
+
+        btnHideTask.addEventListener('click', function (event) {
+
+            const tasks_completed = document.querySelectorAll('li.done');
+
+            tasks_completed.forEach(function (task) {
+                task.classList.toggle('hidden');
+            });
+        });
 
     </script>
 
