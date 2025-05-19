@@ -28,7 +28,8 @@
     <div>
         <input type="text" name="" id="task_label" value="Acheter du pain">
         <button id="add_task">Ajouter une tâche</button>
-        <button id="hide_tasks">Masquer/afficher les tâches faites</button>
+        <label for="hide_show_tasks" id="label_show_hide">Masquer les tâches complétées</label>
+        <input type="checkbox" name="" id="hide_show_tasks">
     </div>
 
 
@@ -38,15 +39,14 @@
 
     <script>
 
-        //Identifiant unique d'une tache
+        //Identifiant unique d'une tache, incrémenté à chaque tâche crée
         let taskId = 0;
-        //Référence vers l'input texte qui donne le nom de la tache à ajouter
+        //Référence vers l'input texte qui permet à l'user de saisir le nom de la tâche à ajouter
         let input = document.getElementById("task_label");
-        //Récupère une référence vers un objet qui représente "le noeud" du bouton
+        //Récupère une référence vers le bouton pour ajouter une tache
         let btnAddTask = document.getElementById("add_task");
         //Récupérer une réference vers le boutton pour afficher/masquer les taches réalisées
-        let btnHideTask = document.getElementById('hide_tasks');
-
+        let checkBoxHideShowTasks = document.getElementById('hide_show_tasks');
 
         /**
          * Retourne un élément HTML qui représente
@@ -68,6 +68,9 @@
             //Ajouter un écouteur d'évènement pour rayer la tache quand elle est faite
             checkbox.addEventListener('change', function (event) {
                 li.classList.toggle('done')
+                if(checkBoxHideShowTasks.checked){
+                    li.classList.toggle('hidden')
+                }
             });
 
             //Ajouter un bouton pour supprimer la tache
@@ -84,6 +87,9 @@
         }
 
 
+        /**
+         * Ajoute une nouvelle tâche dans la todo list (effet de bord : modifie le DOM)
+         */
         function actionAddTask() {
 
             //Si l'input est vide, on n'ajoute pas de tache à la liste
@@ -101,6 +107,10 @@
             //Insérer la tache dans la liste
             tasks.appendChild(task);
 
+            resetInput();
+        }
+
+        function resetInput(){
             //Réinitialiser l'input (vider la saisie)
             input.value = "";
         }
@@ -110,13 +120,24 @@
         btnAddTask.addEventListener('click', actionAddTask);
 
 
-        btnHideTask.addEventListener('click', function (event) {
+        //Masquer/Afficher les taches complétées
+        checkBoxHideShowTasks.addEventListener('change', function (event) {
 
-            const tasks_completed = document.querySelectorAll('li.done');
+            if (this.checked) {
 
-            tasks_completed.forEach(function (task) {
-                task.classList.toggle('hidden');
-            });
+                const tasks_completed = document.querySelectorAll('li.done');
+                tasks_completed.forEach(function (task) {
+                    task.classList.toggle('hidden');
+                });
+
+            } else {
+                const tasks_completed = document.querySelectorAll('li.hidden');
+                tasks_completed.forEach(function (task) {
+                    task.classList.toggle('hidden');
+                });
+            }
+
+
         });
 
     </script>
