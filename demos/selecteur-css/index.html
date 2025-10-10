@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sélecteurs CSS</title>
+
+    <style>
+        /* Du CSS */
+        ol {
+            /* Place le marqueur dans le li */
+            list-style-position: inside;
+        }
+
+        li:hover {
+            /* rgb(r, g, b) est une fonction CSS ! */
+            /* Règle css => propriété: valeur; */
+            background: rgb(239, 20, 255);
+            color: rgb(251, 251, 0);
+            font-weight: 900;
+        }
+
+        /* Sélecteur avec id est plus spécifique que le sélecteur avec classe */
+        p#second{
+            color:aqua;
+        }
+
+        /* Sélecteur avec classe est plus spécifique que le sélecteur d'éléments HTML (p{...}) */
+        p.first{
+            color: orange;
+        }
+
+        p {
+            color: red;
+            border: 3px solid red;
+            border-radius: 70px;
+            padding: 12px 26px 12px 26px;
+        }
+
+        p{
+            color: blue;
+        }
+
+        p{
+            color: green;
+        }
+
+      
+
+    </style>
+
+
+</head>
+
+<body>
+
+    <h1>Selecteurs, position, flexbox, media queries (si le temps)</h1>
+
+    <!-- (Commentaire) Liste ordonnée -->
+    <ol>
+        <li>Foo</li>
+        <li>Bar</li>
+        <li>Baz</li>
+    </ol>
+
+    <p class="first">
+        Logoden biniou degemer mat an penn, ar bed naon ziskouez. Ne e frouezh gwrierez vourc’h kae, kroc’hen Arre stumm
+        vunutenn. Plouz dastum eus a deuet skolaer, sivi c’hroaz kurun c’hleñved. Dimerc’her diriaou koar saveteiñ
+        arabat skouarn, flourañ fall ostaleri sentiñ. Warni, gwin nec’hin ret, douar dastum naer vrec’h, c’heloù tasenn.
+        Kotoñs ac’hanoc’h mignon echuiñ c’hiz amprevan, sklerijenn milin an c’higer. Aon pelec’h ur speredek a broust,
+        dougen Sant-Tegoneg al du. Gontell gouren pla’hig lun gar kemmañ, adarre birviñ kaozeadenn godell. Diaes frouezh
+        kontadenn ur trugarez c’horn, traezh tiegezh evito señin. Riskl holl honnezh Briad gaoued dezho, kenañ tour
+        anzav debriñ.
+    </p>
+    <p id="second" class="first">
+        Drezon warnoc’h bed ker kleuz spontus, eizhvet c’heuz magañ dibab. Ganto Pask pinvidik flamm diwar mall, e
+        bandenn gwener beleg. Kempenn se diouzhtu o goz ganet, setu lonkañ Douarnenez homañ. Pempoull tour pepr debriñ
+        korn buan, ael miliner kouezhañ ezel. Bell fall outi beleg reizh sec’hed, gwalc’hiñ re tennañ plijout. Skañv spi
+        pignat dremm diwall butuniñ, bagad war talvoudus ac’hanomp. Bazh laerezh leskiñ doñjer hent taol, dirak Mor
+        c’houmoul oa. Anv fresk lost gervel evezh nec’h, farsus amprevan Pont-Aven gwechall. Eme dir hevelep botez
+        vunutenn ilin, holen ac’hanout ur egistañ. O goleiñ logod dienn chaseour hir, hi traezh lamp ostaleri.
+    </p>
+    <p>
+        Enni trubard feiz banne kreñv dre, kerzhout diwezhañ grizilh Pembo. Geniterv plijadur yar solier rimiañ fiziañs,
+        lies here legumaj pe. Geniterv c’horn formaj dit, kouevr moereb bruzun gazek, c’hi a. Ur spontus c’hanon huñvre
+        skuizhañ a, siwazh priz koan fourchetez. A naetaat kefe erc’h maen plijout, vro goleiñ vatezh baner. Ur
+        Montroulez c’hoef bann esaeañ don, amann kenderv e evito. Gwerzhañ c’hleñved lamp garantez goustad garmiñ,
+        evidomp vuzell pelec’h fresk. Aketus pignat ar warno disadorn bara, betek laezh amañ Kermouster. Heñvel Egineg
+        lies a, fur divskouarn goañv bev, bremañ kleiz. Goullo stivell triwec’h speredek milin fiziañs, estreget tamall
+        a treuziñ.
+    </p>
+
+</body>
+
+</html>
