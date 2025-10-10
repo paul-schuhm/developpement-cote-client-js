@@ -1,3 +1,12 @@
+<!-- 
+
+Démo d'une landing page avec une image et un titre centré, sans utiliser flexbox.
+Noter l'utiliser des propriétés position: relative et position: absolute pour y parvenir.
+
+L'attribut position et le pseudo élément ::after sont très utilisé pour créer des overlays sur des images afin d'améliorer le contraste avec le texte.
+
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,36 +17,74 @@
     <title>Document</title>
 
     <style>
-        /* Balse style: CSS */
-
-        header div{
-            height: 80vh;
-            img{
-                /* Largeur image = 100% de la largeur du parent */
-                width: 100%;
-                /* Hauteur image = 100% de la hauteur du parent */
-                height: 100%;
-                object-fit: cover;
-            }
-        }
+        /* Balise style: CSS */
 
         /* Ecraser regles par défaut du navigateur */
-        body{
+        body {
             margin: 0;
         }
 
-        nav ul{
+        /* Navbar */
+        nav ul {
             /* Retire les bullet points */
             list-style: none;
             padding: 0;
             text-align: center;
-            li{
+
+            li {
                 display: inline-block;
                 margin-right: 16px;
             }
         }
 
-    
+        header div {
+            height: 75vh;
+            /* Positionner la div */
+            position: relative;
+
+            img {
+                /* 
+                L'élément est retiré du flux normal et aucun espace n'est créé pour l'élément sur la page. Il est ensuite positionné par rapport à son ancêtre le plus proche positionné (la div)
+                */
+                position: absolute;
+                /* Largeur image = 100% de la largeur du parent */
+                width: 100%;
+                /* Hauteur image = 100% de la hauteur du parent */
+                height: 100%;
+                /* Redimensionne l'image sans la déformer (en zoomant) */
+                object-fit: cover;
+            }
+
+            h1 {
+                position: absolute;
+                /* Décalage par rapport au parent (haut à gauche) */
+                top: 50%;
+                left: 50%;
+                /* Centrer par rapport au centre du titre, pas son coin supérieur gauche */
+                transform: translate(-50%, -50%);
+                font-size: 84px;
+                color: white;
+
+                margin: 0;
+                z-index: 2;
+
+                /* Bon effet de condenser les titres avec grande font-size */
+                letter-spacing: -2px;
+            }
+        }
+
+        /* Création d'un overlay pour améliorer le contraste */
+        /* Pseudo élément : un élément crée à la volée en CSS */
+        header div::after {
+            /* On ne met pas de contenu texte */
+            content: "";
+            /* On le place aussi en absolute */
+            position: absolute;
+            /* Prend toutes les dimensions du parent */
+            width: 100%;
+            height: 100%;
+            background-color: rgba(39, 39, 39, 0.3);
+        }
     </style>
 
 </head>
@@ -58,15 +105,17 @@
             </ul>
         </nav>
 
-        <!-- Div: creer un conteneur qui englobe image et mon h1 -->
-        <div>
+        <!-- Div: creer un "conteneur" qui englobe image et mon h1 -->
+        <!-- Pattern conteneur : on définit un parent pour controler le comportement de ses éléments enfants. -->
+        <div class="container">
             <img src="./img/banner.jpg" alt="Une photo d'une montagne enneigée.">
-            <h1>Notre site web</h1>
+            <h1>Titre du site</h1>
         </div>
     </header>
 
     <main>
-        <h2>Le contenu...</h2>
+        <h2>Le contenu du site...</h2>
+        <p>Comme on peut le voir, centrer le titre avec cette méthode demande du travail. On verra une approche alternative avec une image en background et flexbox.</p>
     </main>
 
 </body>
