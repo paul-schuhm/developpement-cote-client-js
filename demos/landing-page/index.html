@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+
+    <style>
+        /* Balse style: CSS */
+
+        header div{
+            height: 80vh;
+            img{
+                /* Largeur image = 100% de la largeur du parent */
+                width: 100%;
+                /* Hauteur image = 100% de la hauteur du parent */
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        /* Ecraser regles par défaut du navigateur */
+        body{
+            margin: 0;
+        }
+
+        nav ul{
+            /* Retire les bullet points */
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            li{
+                display: inline-block;
+                margin-right: 16px;
+            }
+        }
+
+    
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="">Accueil</a>
+                </li>
+                <li>
+                    <a href="">Blog</a>
+                </li>
+                <li>
+                    <a href="">À propos</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Div: creer un conteneur qui englobe image et mon h1 -->
+        <div>
+            <img src="./img/banner.jpg" alt="Une photo d'une montagne enneigée.">
+            <h1>Notre site web</h1>
+        </div>
+    </header>
+
+    <main>
+        <h2>Le contenu...</h2>
+    </main>
+
+</body>
+
+</html>
