@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM/Todo list</title>
+
+    <style>
+        .done {
+            text-decoration: line-through;
+            color: grey;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Manipulation du DOM (Todo list)</h1>
+
+
+    <h2>A faire</h2>
+
+    <div>
+        <input type="text" name="" id="task_label" value="Acheter du pain">
+        <button id="add_task">Ajouter une tâche</button>
+        <label for="hide_show_tasks" id="label_show_hide">Masquer les tâches complétées</label>
+        <input type="checkbox" name="" id="hide_show_tasks">
+    </div>
+
+
+    <ul id="tasks">
+    </ul>
+
+
+    <script>
+
+        //Identifiant unique d'une tache, incrémenté à chaque tâche crée
+        let taskId = 0;
+        //Référence vers l'input texte qui permet à l'user de saisir le nom de la tâche à ajouter
+        let input = document.getElementById("task_label");
+        //Récupère une référence vers le bouton pour ajouter une tache
+        let btnAddTask = document.getElementById("add_task");
+        //Récupérer une réference vers le boutton pour afficher/masquer les taches réalisées
+        let checkBoxHideShowTasks = document.getElementById('hide_show_tasks');
+
+        /**
+         * Retourne un élément HTML qui représente
+         * une tache (composant)
+         */
+        function createTaskElement(taskLabel, taskId) {
+            const li = document.createElement('li');
+            const label = document.createElement('label');
+            //Créer un input de type checkbox (en 2 temps)
+            const checkbox = document.createElement('input');
+            checkbox.setAttribute('type', 'checkbox');
+            li.appendChild(label);
+            li.appendChild(checkbox);
+
+            checkbox.setAttribute('id', taskId);
+            label.textContent = taskLabel;
+            label.setAttribute('for', taskId);
+
+            //Ajouter un écouteur d'évènement pour rayer la tache quand elle est faite
+            checkbox.addEventListener('change', function (event) {
+                li.classList.toggle('done')
+                if(checkBoxHideShowTasks.checked){
+                    li.classList.toggle('hidden')
+                }
+            });
+
+            //Ajouter un bouton pour supprimer la tache
+            const btnDelete = document.createElement('button');
+            btnDelete.innerText = "Supprimer";
+            li.appendChild(btnDelete);
+
+            btnDelete.addEventListener('click', function (event) {
+                //Supprimer la tache (noeud parent, le li)
+                this.parentElement.remove();
+            });
+
+            return li;
+        }
+
+
+        /**
+         * Ajoute une nouvelle tâche dans la todo list (effet de bord : modifie le DOM)
+         */
+        function actionAddTask() {
+
+            //Si l'input est vide, on n'ajoute pas de tache à la liste
+            if (!input.value)
+                return;
+
+            //Récuperer la liste des tâches
+            let tasks = document.getElementById("tasks");
+
+            //Créer un élément HTML représentant une tache
+            let task = createTaskElement(input.value, taskId);
+            //Incrémenter l'identifiant unique attribué à chaque tache
+            taskId++;
+
+            //Insérer la tache dans la liste
+            tasks.appendChild(task);
+
+            resetInput();
+        }
+
+        function resetInput(){
+            //Réinitialiser l'input (vider la saisie)
+            input.value = "";
+        }
+
+        //Enregistrer un écouteur d'évènement (une fonction associée à un évènement)
+        //Dès qu'il y aura un click sur le bouton, la fonction sera executée
+        btnAddTask.addEventListener('click', actionAddTask);
+
+
+        //Masquer/Afficher les taches complétées
+        checkBoxHideShowTasks.addEventListener('change', function (event) {
+
+            if (this.checked) {
+
+                const tasks_completed = document.querySelectorAll('li.done');
+                tasks_completed.forEach(function (task) {
+                    task.classList.toggle('hidden');
+                });
+
+            } else {
+                const tasks_completed = document.querySelectorAll('li.hidden');
+                tasks_completed.forEach(function (task) {
+                    task.classList.toggle('hidden');
+                });
+            }
+
+
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+//Crée des cercles à l'endroit où l'utilisateur clique
+//A copier/coller dans l'editeur de p5.js : https://editor.p5js.org/
+
+let d = 100;
+
+function Circle(x, y, d){
+  this.x = x;
+  this.y = y;
+  this.d = d
+}
+
+let circles = []
+
+//Fonction qui sera appelée une fois au démarrage du programme
+function setup() {
+  createCanvas(800, 600);
+}
+
+//Fonction appelée a chaque frame (en continu, dans une boucle infinie)
+function draw() {
+  background(100);
+  for(let c of circles){
+    circle(c.x, c.y, c.d);
+  }
+}
+
+function mouseClicked(){
+  circles.push(new Circle(mouseX, mouseY, d));
+}

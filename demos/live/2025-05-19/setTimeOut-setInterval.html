@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        html{
+            font-size: 32pt;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <p id="scream">A H</p>
+
+    <script>
+
+        setInterval(function () {
+            const p = document.getElementById('scream');
+            p.innerText = p.innerText + ' H';
+        }, 20);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+        /* CSS */
+
+        nav ul {
+            /* Retire les bullet points */
+            list-style: none;
+
+            li {
+                display: inline-block;
+            }
+        }
