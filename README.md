@@ -14,8 +14,7 @@ Ce dépôt contient tout le code source Javascript (et HTML) du module *Dévelop
   - [Références](#références)
     - [Documentation officielle](#documentation-officielle)
   - [Programmation créative](#programmation-créative)
-    - [Ouvrages](#ouvrages)
-
+    - [Lectures recommandées](#lectures-recommandées)
 
 ## Utiliser le dépôt
 
@@ -29,13 +28,13 @@ Télécharger et installer [git](https://git-scm.com/downloads) pour votre syst�
 
 > Sur macOs et GNU/Linux, vérifier que le programme `git` est sur le `PATH`.
 
-### Récupérer le contenu du dépôt 
+### Récupérer le contenu du dépôt
 
-Ouvrir un terminal. 
+Ouvrir un terminal.
 
 > Sur Windows, vous pouvez utiliser l'application Git Bash (installée avec git), qui est un terminal dédié à git.
 
-Vérifiez l'installation de Git en tapant simplement `git` dans votre terminal. Si `git` est correctement installé, vous devriez voir une liste de commandes. Sinon, assurez-vous que `git` est inclus dans votre variable d'environnement `PATH`, qui répertorie les emplacements où le programme est recherché lorsque vous souhaitez le lancer. 
+Vérifiez l'installation de Git en tapant simplement `git` dans votre terminal. Si `git` est correctement installé, vous devriez voir une liste de commandes. Sinon, assurez-vous que `git` est inclus dans votre variable d'environnement `PATH`, qui répertorie les emplacements où le programme est recherché lorsque vous souhaitez le lancer.
 
 > Comment ajouter un répertoire au `PATH` ? [Voir comment faire sur Windows](https://learn.microsoft.com/fr-fr/previous-versions/office/developer/sharepoint-2010/ee537574(v=office.14)), [comment faire sur macOS](https://quick-tutoriel.com/ajouter-rapidement-un-nouveau-repertoire-au-path-de-mac-osx/).
 
@@ -88,18 +87,17 @@ Si vous constatez un oubli (correction manquante) ou une erreur, merci de me con
 - [Notre premier code JavaScript](https://developer.mozilla.org/fr/docs/Learn/JavaScript/First_steps/A_first_splash)
 - [JavaScript asynchrone](https://developer.mozilla.org/fr/docs/Learn/JavaScript/Asynchronous) de la MDN, pour apprendre les bases de la programmation asynchrone. [Faire l'évaluation](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Sequencing_animations)
 
-
 ## Programmation créative
 
 - [p5.js](https://p5js.org/), *a friendly tool for learning to code and make art*. Une librairie JavaScript open-source pour le code créatif. Avec un focus pour rendre le code accessible et inclusif pour les artistes, designers, formateurs, débutant·es. Commencer à programmer [directement depuis l'éditeur de code en ligne](https://editor.p5js.org/) ;
 - [The Coding Train](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw/about), l'excellente chaîne YouTube *The Coding Train* de l'innérrable [Daniel Shiffman](https://en.wikipedia.org/wiki/Daniel_Shiffman). Apprendre JavaScript (y compris les fondamentaux !) en programmant des petits projets fun, visuels et créatifs.
 
+### Lectures recommandées
 
-### Ouvrages
-
-![](./assets/oreillyjsdefinitiveguide.png)
-![](./assets/oreillyphpmysqljs.png)
+<img src="assets/oreillyjsdefinitiveguide.png" width=300>
+<img src="assets/oreillyphpmysqljs.png" width=300>
 <img src="assets/alg+datastructures.jpg" width=300>
+
 - [JavaScript: The Definitive Guide, 7th Edition](https://www.oreilly.com/library/view/javascript-the-definitive/9781491952016/), de David Flanagan, publié chez O'Reilly, 2020. La 6e edition couvre le standard ECMAScript 5 (celle actuellement implémentée par les navigateurs) et reste donc une référence solide. Trouvable pour une dizaine d'euros en occasion
 - [Développer un site web en PHP, MySQL JavaScript jQuery, CSS3 et HTML5: Un guide étape par étape pour créer des sites web dynamiques, 6e edition](https://www.amazon.fr/D%C3%A9velopper-MySQL-JavaScript-jQuery-HTML5/dp/2893776183/ref=sr_1_1), un excellent ouvrage pour découvrir l'écosystème du web (développement client, serveur). [Disponible en ligne ici](https://github.com/domaingood/learning_php/blob/master/Learning%20PHP%2C%20MySQL%20%26%20JavaScript%2C%206th%20Edition.pdf). [La version 5 est trouvable facilement](https://www.amazon.fr/D%C3%A9velopper-Mysql-Javascript-Jquery-HTML5/dp/2893775764/ref=sr_1_2) se trouve facilement en occasion ou en ligne
 - [Algorithmes + datastructures](https://www.amazon.fr/Algorithms-Data-Structures-Niklaus-Wirth/dp/0130219991), de Niklaus Wirth (RIP), publié chez Longman Higher Education, 1986. Une référence pour apprendre à écrire des programmes. Trouvable en ligne facilement
