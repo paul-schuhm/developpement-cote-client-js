@@ -94,10 +94,8 @@ Si vous constatez un oubli (correction manquante) ou une erreur, merci de me con
 
 ### Lectures recommandées
 
-<img src="assets/oreillyjsdefinitiveguide.png" width=300>
-<img src="assets/oreillyphpmysqljs.png" width=300>
-<img src="assets/alg+datastructures.jpg" width=300>
+<img src="assets/oreillyjsdefinitiveguide.png" width=200><img src="assets/oreillyphpmysqljs.png" width=200><img src="assets/alg+datastructures.jpg" width=200>
 
 - [JavaScript: The Definitive Guide, 7th Edition](https://www.oreilly.com/library/view/javascript-the-definitive/9781491952016/), de David Flanagan, publié chez O'Reilly, 2020. La 6e edition couvre le standard ECMAScript 5 (celle actuellement implémentée par les navigateurs) et reste donc une référence solide. Trouvable pour une dizaine d'euros en occasion
 - [Développer un site web en PHP, MySQL JavaScript jQuery, CSS3 et HTML5: Un guide étape par étape pour créer des sites web dynamiques, 6e edition](https://www.amazon.fr/D%C3%A9velopper-MySQL-JavaScript-jQuery-HTML5/dp/2893776183/ref=sr_1_1), un excellent ouvrage pour découvrir l'écosystème du web (développement client, serveur). [Disponible en ligne ici](https://github.com/domaingood/learning_php/blob/master/Learning%20PHP%2C%20MySQL%20%26%20JavaScript%2C%206th%20Edition.pdf). [La version 5 est trouvable facilement](https://www.amazon.fr/D%C3%A9velopper-Mysql-Javascript-Jquery-HTML5/dp/2893775764/ref=sr_1_2) se trouve facilement en occasion ou en ligne
-- [Algorithmes + datastructures](https://www.amazon.fr/Algorithms-Data-Structures-Niklaus-Wirth/dp/0130219991), de Niklaus Wirth (RIP), publié chez Longman Higher Education, 1986. Une référence pour apprendre à écrire des programmes. Trouvable en ligne facilement
+- [Algorithmes + datastructures](https://www.amazon.fr/Algorithms-Data-Structures-Niklaus-Wirth/dp/0130219991), de Niklaus Wirth (RIP), publié chez Longman Higher Education, 1986. Une référence pour **apprendre à écrire des programmes**. Trouvable en ligne facilement. Se trouver **une référence solide** comme celle-ci pour apprendre les fondamentaux (écriture de programmes et d'algorithmes).
